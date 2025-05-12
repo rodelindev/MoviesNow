@@ -23,7 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.rodelindev.moviesnow.home.domain.model.Movie
+import com.rodelindev.moviesnow.features.home.domain.model.Movie
 
 @Composable
 fun MovieCard(

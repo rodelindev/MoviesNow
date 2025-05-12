@@ -1,9 +1,9 @@
 package com.rodelindev.moviesnow.core.di
 
-import com.rodelindev.moviesnow.home.data.network.interceptor.ApiKeyInterceptor
-import com.rodelindev.moviesnow.home.data.network.services.MovieDBService
-import com.rodelindev.moviesnow.home.data.repository.MoviesRepositoryImpl
-import com.rodelindev.moviesnow.home.domain.repository.MoviesRepository
+import com.rodelindev.moviesnow.features.home.data.network.interceptor.ApiKeyInterceptor
+import com.rodelindev.moviesnow.features.home.data.network.services.MovieDBService
+import com.rodelindev.moviesnow.features.home.data.repository.MoviesRepositoryImpl
+import com.rodelindev.moviesnow.features.home.domain.repository.MoviesRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.annotation.Factory
@@ -11,6 +11,7 @@ import org.koin.core.annotation.Module
 import org.koin.core.annotation.Single
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.jvm.java
 
 @Module
 class DataModule {
