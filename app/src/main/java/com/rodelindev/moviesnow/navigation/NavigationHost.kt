@@ -7,8 +7,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.rodelindev.moviesnow.home.presentation.detail.MovieDetailScreen
-import com.rodelindev.moviesnow.home.presentation.home.MovieListScreen
+import com.rodelindev.moviesnow.features.home.presentation.detail.MovieDetailScreen
+import com.rodelindev.moviesnow.features.home.presentation.home.MovieListScreen
 import com.rodelindev.moviesnow.navigation.NavigationRoute.HomeRoute
 import com.rodelindev.moviesnow.navigation.NavigationRoute.MovieDetail
 
