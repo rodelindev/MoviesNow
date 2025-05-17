@@ -11,7 +11,6 @@ import org.koin.core.annotation.Module
 import org.koin.core.annotation.Single
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import kotlin.jvm.java
 
 @Module
 class DataModule {
@@ -52,7 +51,7 @@ class DataModule {
     }
 
     @Single
-    fun provideRickAndMortyApi(retrofit: Retrofit): MovieDBService {
+    fun provideMoviesDBApi(retrofit: Retrofit): MovieDBService {
         return retrofit.create(MovieDBService::class.java)
     }
 
