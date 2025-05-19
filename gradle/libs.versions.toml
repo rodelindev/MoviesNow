@@ -21,7 +21,7 @@ koinAnnotations = "2.0.0"
 ## Paging Compose
 pagingCompose = "3.3.6"
 ##Retrofit and logging interceptor
-retrofitVersion = "2.11.0"
+retrofitVersion = "3.0.0"
 loggingInterceptor = "4.12.0"
 ## Coil
 coilCompose = "2.7.0"
