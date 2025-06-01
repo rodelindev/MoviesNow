@@ -16,12 +16,11 @@ class MoviesNowApp: Application() {
         startKoin {
             androidLogger()
             androidContext(this@MoviesNowApp)
+            defaultModule()
             modules(
                 AppModule().module,
                 DataModule().module,
-                defaultModule
             )
         }
     }
-
 }

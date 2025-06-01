@@ -19,17 +19,15 @@ fun NavigationHost(
     NavHost(
         navController = navController,
         startDestination = HomeRoute,
-        enterTransition = { slideInHorizontally(tween(500)) { it } },
-        exitTransition = { slideOutHorizontally(tween(500)) { - it } },
-        popEnterTransition = { slideInHorizontally(tween(500)) { - it } },
-        popExitTransition = { slideOutHorizontally(tween(500)) { it } }
+        enterTransition = { slideInHorizontally(tween(300)) { it } },
+        exitTransition = { slideOutHorizontally(tween(300)) { - it } },
+        popEnterTransition = { slideInHorizontally(tween(300)) { - it } },
+        popExitTransition = { slideOutHorizontally(tween(300)) { it } }
     ) {
         composable<HomeRoute> {
             MovieListScreen(
                 onMovieClick = { movieId ->
-                    navController.navigate(
-                        route = MovieDetail(movieId)
-                    )
+                    navController.navigate(MovieDetail(movieId))
                 }
             )
         }
