@@ -27,7 +27,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil.compose.AsyncImage
@@ -79,14 +78,7 @@ fun MovieDetailContent(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = {
-                    Text(
-                        text = movie?.title ?: "",
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.fillMaxWidth()
-                    )
-                },
+                title = { },
                 navigationIcon = {
                     IconButton(
                         onClick = onNavigateUp
@@ -127,8 +119,8 @@ fun MovieDetailContent(
                     .clip(
                         RoundedCornerShape(20.dp)
                     )
-                    /*.width(180.dp)
-                    .aspectRatio(2 / 3f)*/
+                /*.width(180.dp)
+                .aspectRatio(2 / 3f)*/
 
 
             )
@@ -137,8 +129,7 @@ fun MovieDetailContent(
                 modifier = Modifier
                     .padding(horizontal = 30.dp)
                     .align(Alignment.CenterHorizontally),
-                textAlign = TextAlign.Center,
-
+                textAlign = TextAlign.Center
             )
         }
     }
