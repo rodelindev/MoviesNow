@@ -5,9 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.navigation.compose.rememberNavController
-import com.rodelindev.moviesnow.navigation.NavigationHost
+import com.rodelindev.moviesnow.navigation.NavigationRoot
 import com.rodelindev.moviesnow.ui.theme.MoviesNowTheme
-import org.koin.compose.KoinContext
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,11 +14,9 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             MoviesNowTheme {
-                KoinContext {
-                    NavigationHost(
-                        navController = rememberNavController()
-                    )
-                }
+                NavigationRoot(
+                    navController = rememberNavController()
+                )
             }
         }
     }

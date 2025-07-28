@@ -7,22 +7,28 @@ import androidx.paging.cachedIn
 import com.rodelindev.moviesnow.features.home.domain.model.Movie
 import com.rodelindev.moviesnow.features.home.domain.usecase.GetMoviesUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import org.koin.android.annotation.KoinViewModel
 
 @KoinViewModel
 class HomeViewModel(
-    private val getMoviesUseCase: GetMoviesUseCase
+    private val getMoviesUseCase: GetMoviesUseCase,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow<PagingData<Movie>>(PagingData.empty())
-    val state: StateFlow<PagingData<Movie>> = _state.asStateFlow()
-
-    init {
-        getCharacters()
-    }
+    val state: StateFlow<PagingData<Movie>> = _state
+        .onStart {
+            getCharacters()
+        }
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5_000L),
+            initialValue = PagingData.empty()
+        )
 
     private fun getCharacters() {
         viewModelScope.launch {

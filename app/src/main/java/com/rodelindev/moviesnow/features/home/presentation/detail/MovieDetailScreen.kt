@@ -2,11 +2,12 @@
 
 package com.rodelindev.moviesnow.features.home.presentation.detail
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -25,6 +26,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -72,7 +74,7 @@ fun MovieDetailScreen(
 fun MovieDetailContent(
     modifier: Modifier = Modifier,
     movie: Movie?,
-    onNavigateUp: () -> Unit
+    onNavigateUp: () -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -81,7 +83,7 @@ fun MovieDetailContent(
                     Text(
                         text = movie?.title ?: "",
                         maxLines = 1,
-                        overflow = TextOverflow.Ellipsis, 
+                        overflow = TextOverflow.Ellipsis,
                         modifier = Modifier.fillMaxWidth()
                     )
                 },
@@ -97,7 +99,7 @@ fun MovieDetailContent(
                 },
                 actions = {
                     IconButton(
-                        onClick = {  }
+                        onClick = { }
                     ) {
                         Icon(
                             imageVector = Icons.Outlined.FavoriteBorder,
@@ -111,18 +113,32 @@ fun MovieDetailContent(
         Column(
             modifier = modifier
                 .fillMaxSize()
-                .padding(innerPadding)
+                .padding(innerPadding),
+            verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
             AsyncImage(
                 model = movie?.poster,
                 contentDescription = movie?.title,
-                contentScale = ContentScale.FillWidth,
+                contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .aspectRatio(2 / 3f)
+                    .height(500.dp)
+                    .padding(horizontal = 16.dp)
                     .clip(
-                        RoundedCornerShape(10.dp)
+                        RoundedCornerShape(20.dp)
                     )
+                    /*.width(180.dp)
+                    .aspectRatio(2 / 3f)*/
+
+
+            )
+            Text(
+                text = movie?.title ?: "",
+                modifier = Modifier
+                    .padding(horizontal = 30.dp)
+                    .align(Alignment.CenterHorizontally),
+                textAlign = TextAlign.Center,
+
             )
         }
     }

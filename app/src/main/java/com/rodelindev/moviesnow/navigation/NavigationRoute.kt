@@ -2,12 +2,11 @@ package com.rodelindev.moviesnow.navigation
 
 import kotlinx.serialization.Serializable
 
+
+sealed interface NavigationRoute
+
 @Serializable
-sealed interface NavigationRoute {
+data object HomeRoute: NavigationRoute
 
-    @Serializable
-    data object HomeRoute: NavigationRoute
-
-    @Serializable
-    data class MovieDetail(val id: Int): NavigationRoute
-}
+@Serializable
+data class MovieDetail(val id: Int): NavigationRoute

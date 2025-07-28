@@ -1,33 +1,33 @@
 [versions]
-agp = "8.10.1"
-kotlin = "2.1.21"
+agp = "8.11.1"
+kotlin = "2.2.0"
 coreKtx = "1.16.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.9.0"
+lifecycleRuntimeKtx = "2.9.2"
 activityCompose = "1.10.1"
-composeBom = "2025.05.01"
+composeBom = "2025.07.00"
 
 ## External linbrarys
 ## KSP
-ksp = "2.1.21-2.0.1"
+ksp = "2.2.0-2.0.2"
 ## Type-Safety Navigation
-navigationCompose = "2.9.0"
+navigationCompose = "2.9.2"
 ## Kotlinx Serialization
-kotlinSerialization = "1.8.1"
+kotlinSerialization = "1.9.0"
 ## Koin Compose
-koin = "4.0.4"
-koinAnnotations = "2.0.0"
+koinVersion = "4.1.0"
+koinAnnotations = "2.1.0"
 ## Paging Compose
 pagingCompose = "3.3.6"
 ## Retrofit and logging interceptor
 retrofitVersion = "3.0.0"
-loggingInterceptor = "4.12.0"
+loggingInterceptor = "5.1.0"
 ## Coil
 coilCompose = "2.7.0"
 ## Lifecycle ViewModel
-lifecycleViewModel = "2.9.0"
+lifecycleViewModel = "2.9.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -53,12 +53,12 @@ androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx",
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 
 ## Koin compose
-koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
-koin-androidx-navigation = { module = "io.insert-koin:koin-androidx-navigation", version.ref = "koin" }
-koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
-koin-core-viewmodel = { module = "io.insert-koin:koin-core-viewmodel", version.ref = "koin" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinVersion" }
+koin-androidx-navigation = { module = "io.insert-koin:koin-androidx-navigation", version.ref = "koinVersion" }
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinVersion" }
+koin-core-viewmodel = { module = "io.insert-koin:koin-core-viewmodel", version.ref = "koinVersion" }
 koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koinAnnotations" }
-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koinAnnotations" }
+koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koinAnnotations" }
 
 ## Retrofit And Moshi converter
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofitVersion" }

@@ -13,7 +13,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
-class DataModule {
+class NetworkModule {
 
     @Single
     fun provideRetrofit(
@@ -61,4 +61,24 @@ class DataModule {
             movieService = movieService
         )
     }
+
+    /*@KoinViewModel
+    fun provideMovieDetailViewModel(
+        getMovieByIdUseCase: GetMovieByIdUseCase,
+        savedStateHandle: SavedStateHandle
+    ): MovieDetailViewModel {
+        return MovieDetailViewModel(
+            savedStateHandle = savedStateHandle,
+            getMovieByIdUseCase = getMovieByIdUseCase
+        )
+    }
+
+    @KoinViewModel
+    fun provideHomeViewModel(
+        getMoviesUseCase: GetMoviesUseCase,
+    ): HomeViewModel {
+        return HomeViewModel(
+            getMoviesUseCase = getMoviesUseCase
+        )
+    }*/
 }
