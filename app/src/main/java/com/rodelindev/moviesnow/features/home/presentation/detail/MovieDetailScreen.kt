@@ -29,7 +29,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import coil.compose.AsyncImage
+import coil3.compose.AsyncImage
 import com.rodelindev.moviesnow.core.presentation.components.ErrorView
 import com.rodelindev.moviesnow.features.home.domain.model.Movie
 import org.koin.androidx.compose.koinViewModel
@@ -109,7 +109,7 @@ fun MovieDetailContent(
             verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
             AsyncImage(
-                model = movie?.poster,
+                model =  movie?.poster,
                 contentDescription = movie?.title,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -121,8 +121,6 @@ fun MovieDetailContent(
                     )
                 /*.width(180.dp)
                 .aspectRatio(2 / 3f)*/
-
-
             )
             Text(
                 text = movie?.title ?: "",

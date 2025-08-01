@@ -10,3 +10,12 @@ data object HomeRoute: NavigationRoute
 
 @Serializable
 data class MovieDetail(val id: Int): NavigationRoute
+
+// Authentication Routes
+
+@Serializable
+data object Login: NavigationRoute
+
+@Serializable
+data object Signup: NavigationRoute
+

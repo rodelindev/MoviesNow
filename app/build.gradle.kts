@@ -102,6 +102,7 @@ dependencies {
 
     // Coil
     implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 
     //Pagination
     implementation(libs.androidx.paging.compose)
