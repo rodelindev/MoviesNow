@@ -21,14 +21,4 @@ class ApiKeyInterceptor(
             )
         }
     }
-
-    /*override fun intercept(chain: Interceptor.Chain): Response {
-        val request = chain.request()
-        val url = request.url.newBuilder().addQueryParameter(
-            "Authorization",
-            "Bearer ${BuildConfig.API_KEY}"
-        ).build()
-        val newRequest = request.newBuilder().url(url).build()
-        return chain.proceed(newRequest)
-    }*/
 }

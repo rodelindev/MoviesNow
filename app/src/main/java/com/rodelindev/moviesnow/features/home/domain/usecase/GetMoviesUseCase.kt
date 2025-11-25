@@ -4,9 +4,7 @@ import androidx.paging.PagingData
 import com.rodelindev.moviesnow.features.home.domain.model.Movie
 import com.rodelindev.moviesnow.features.home.domain.repository.MoviesRepository
 import kotlinx.coroutines.flow.Flow
-import org.koin.core.annotation.Factory
 
-@Factory
 class GetMoviesUseCase(
     private val repository: MoviesRepository
 ) {

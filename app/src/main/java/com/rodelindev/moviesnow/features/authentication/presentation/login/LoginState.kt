@@ -1,6 +1,10 @@
 package com.rodelindev.moviesnow.features.authentication.presentation.login
 
 data class LoginState(
-    val paramOne: String = "default",
-    val paramTwo: List<String> = emptyList(),
+    val username: String = "",
+    val password: String = "",
+    val emailError: String? = null,
+    val passwordError: String? = null,
+    val isLoggedIn: Boolean = false,
+    val isLoading: Boolean = false
 )

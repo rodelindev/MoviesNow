@@ -6,79 +6,41 @@ import com.rodelindev.moviesnow.features.home.data.repository.MoviesRepositoryIm
 import com.rodelindev.moviesnow.features.home.domain.repository.MoviesRepository
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.core.annotation.Factory
-import org.koin.core.annotation.Module
-import org.koin.core.annotation.Single
+import org.koin.core.module.dsl.bind
+import org.koin.core.module.dsl.factoryOf
+import org.koin.core.qualifier.named
+import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 
-@Module
-class NetworkModule {
-
-    @Single
-    fun provideRetrofit(
-        @BaseUrl apiEndpoint: String,
-        client: OkHttpClient,
-    ): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(apiEndpoint)
+val networkModule = module {
+    single<Retrofit> {
+        Retrofit.Builder()
+            .baseUrl(get<String>(named(Qualifier.BaseUrl)))
             .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
+            .client(get<OkHttpClient>())
             .build()
     }
 
-    @Single
-    fun provideOkHttpClient(
-        interceptor: ApiKeyInterceptor,
-        loginInterceptor: HttpLoggingInterceptor,
-    ): OkHttpClient {
-        return OkHttpClient.Builder()
-            .addInterceptor(loginInterceptor)
-            .addInterceptor(interceptor)
+    single<MovieDBService> {
+        get<Retrofit>().create<MovieDBService>()
+    }
+
+    single<OkHttpClient> {
+        OkHttpClient.Builder()
+            .addInterceptor(get<HttpLoggingInterceptor>())
+            .addInterceptor(get<ApiKeyInterceptor>())
             .build()
     }
 
-    @Single
-    fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
-        return HttpLoggingInterceptor().apply {
+    single<HttpLoggingInterceptor> {
+        HttpLoggingInterceptor().apply {
             level = HttpLoggingInterceptor.Level.BODY
         }
     }
 
-    @Factory
-    fun provideApiKeyInterceptor(@ApiKey apiKey: String): ApiKeyInterceptor {
-        return ApiKeyInterceptor(apiKey = apiKey)
-    }
+    factory { ApiKeyInterceptor(get(named(Qualifier.ApiKey))) }
 
-    @Single
-    fun provideMoviesDBApi(retrofit: Retrofit): MovieDBService {
-        return retrofit.create(MovieDBService::class.java)
-    }
-
-    @Factory
-    fun provideMoviesRepository(movieService: MovieDBService): MoviesRepository {
-        return MoviesRepositoryImpl(
-            movieService = movieService
-        )
-    }
-
-    /*@KoinViewModel
-    fun provideMovieDetailViewModel(
-        getMovieByIdUseCase: GetMovieByIdUseCase,
-        savedStateHandle: SavedStateHandle
-    ): MovieDetailViewModel {
-        return MovieDetailViewModel(
-            savedStateHandle = savedStateHandle,
-            getMovieByIdUseCase = getMovieByIdUseCase
-        )
-    }
-
-    @KoinViewModel
-    fun provideHomeViewModel(
-        getMoviesUseCase: GetMoviesUseCase,
-    ): HomeViewModel {
-        return HomeViewModel(
-            getMoviesUseCase = getMoviesUseCase
-        )
-    }*/
+    factoryOf(::MoviesRepositoryImpl) { bind<MoviesRepository>() }
 }

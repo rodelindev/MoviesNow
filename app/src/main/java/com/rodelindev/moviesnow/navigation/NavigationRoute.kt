@@ -1,18 +1,18 @@
 package com.rodelindev.moviesnow.navigation
 
+import androidx.navigation3.runtime.NavKey
 import kotlinx.serialization.Serializable
 
 
-sealed interface NavigationRoute
+sealed interface NavigationRoute: NavKey
 
 @Serializable
 data object HomeRoute: NavigationRoute
 
 @Serializable
-data class MovieDetail(val id: Int): NavigationRoute
+data class MovieDetail(val movieId: Int): NavigationRoute
 
 // Authentication Routes
-
 @Serializable
 data object Login: NavigationRoute
 

@@ -1,26 +1,19 @@
 package com.rodelindev.moviesnow.core.di
 
 import com.rodelindev.moviesnow.BuildConfig
-import org.koin.core.annotation.Module
-import org.koin.core.annotation.Named
-import org.koin.core.annotation.Single
+import com.rodelindev.moviesnow.core.di.Qualifier.ApiKey
+import com.rodelindev.moviesnow.core.di.Qualifier.BaseUrl
+import org.koin.core.qualifier.named
+import org.koin.dsl.module
 
-@Module
-class AppModule {
-
-    @Single
-    @BaseUrl
-    fun provideBaseUrl(): String = BuildConfig.BASE_URL
-
-    @Single
-    @ApiKey
-    fun provideApiKey(): String = BuildConfig.API_KEY
-
+val appModule = module {
+    single(named(BaseUrl)) { BuildConfig.BASE_URL }
+    single(named(ApiKey)) { BuildConfig.API_KEY }
 }
 
-@Named
-annotation class BaseUrl
-
-@Named
-annotation class ApiKey
-
+enum class Qualifier {
+    BaseUrl,
+    ApiKey,
+    Main,
+    IO
+}

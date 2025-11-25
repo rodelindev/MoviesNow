@@ -32,39 +32,37 @@ import org.koin.androidx.compose.koinViewModel
 fun MovieListScreen(
     viewModel: HomeViewModel = koinViewModel(),
     onMovieClick: (Int) -> Unit,
+    onLogout: () -> Unit
 ) {
 
-    val movies = viewModel.state.collectAsLazyPagingItems()
+    val moviesState = viewModel.state.collectAsLazyPagingItems()
 
     Scaffold { paddingValues ->
         when {
-            movies.loadState.refresh is LoadState.Loading && movies.itemCount == 0 -> {
+            moviesState.loadState.refresh is LoadState.Loading && moviesState.itemCount == 0 -> {
                 CustomProgressIndicator(
                     modifier = Modifier.fillMaxSize()
                 )
             }
-
-            movies.loadState.refresh is LoadState.NotLoading && movies.itemCount == 0 -> {
+            moviesState.loadState.refresh is LoadState.NotLoading && moviesState.itemCount == 0 -> {
                 CustomProgressIndicator(
                     modifier = Modifier.fillMaxSize()
                 )
             }
-
-            movies.loadState.hasError -> {
+            moviesState.loadState.hasError -> {
                 ErrorView(
                     message = "Error Network",
                     onRetry = {
-                        movies.apply {
+                        moviesState.apply {
                             refresh()
                         }
                     }
                 )
             }
-
             else -> {
                 MovieListContent(
                     paddingValues = paddingValues,
-                    movies = movies,
+                    movies = moviesState,
                     onMovieClick = onMovieClick,
                 )
             }
