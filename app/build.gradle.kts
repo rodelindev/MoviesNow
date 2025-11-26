@@ -67,6 +67,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.datastore.preferences.core)
 
     // Android Testing
     testImplementation(libs.junit)
@@ -77,9 +78,10 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // Jetpack Compose navigation
-    implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.navigation.ui.ktx)
+    // Navigation 3
+    implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.navigation3.ui)
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
 
     // Kotlin Serializable
     implementation(libs.kotlinx.serialization.json)
@@ -87,11 +89,18 @@ dependencies {
     // Lifecycle Viewmodel
     implementation(libs.androidx.lifecycle.viewmodel)
 
+    // Data Store
+    implementation(libs.androidx.datastore.preferences)
+
     // Koin compose
-    implementation(libs.koin.android)
-    implementation(libs.koin.androidx.navigation)
+    //implementation(libs.koin.android)
+    //implementation(libs.koin.androidx.navigation)
+    //implementation(libs.koin.core.viewmodel)
+    implementation(libs.koin.navigation3)
+    //implementation(libs.koin.jsr330)
+    implementation(libs.javax.inject)
     implementation(libs.koin.androidx.compose)
-    implementation(libs.koin.core.viewmodel)
+    implementation(libs.koin.compose.viewmodel)
     implementation(libs.koin.annotations)
     ksp(libs.koin.ksp.compiler)
 

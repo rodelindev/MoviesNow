@@ -10,9 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -26,18 +23,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
+import com.rodelindev.moviesnow.R
 import com.rodelindev.moviesnow.core.presentation.components.ErrorView
 import com.rodelindev.moviesnow.features.home.domain.model.Movie
-import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun MovieDetailScreen(
-    viewModel: MovieDetailViewModel = koinViewModel(),
-    onNavigateUp: () -> Unit,
+    viewModel: MovieDetailViewModel /*= koinViewModel()*/,
+    onBack: () -> Unit,
 ) {
 
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -63,7 +61,7 @@ fun MovieDetailScreen(
         else -> {
             MovieDetailContent(
                 movie = state.movie,
-                onNavigateUp = onNavigateUp,
+                onNavigateUp = onBack,
             )
         }
     }
@@ -84,7 +82,7 @@ fun MovieDetailContent(
                         onClick = onNavigateUp
                     ) {
                         Icon(
-                            imageVector = Icons.AutoMirrored.Default.ArrowBack,
+                            painter = painterResource(R.drawable.ic_arrow_back),
                             contentDescription = null
                         )
                     }
@@ -94,7 +92,7 @@ fun MovieDetailContent(
                         onClick = { }
                     ) {
                         Icon(
-                            imageVector = Icons.Outlined.FavoriteBorder,
+                            painter = painterResource(R.drawable.ic_favorite),
                             contentDescription = null
                         )
                     }
