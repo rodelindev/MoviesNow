@@ -59,16 +59,10 @@ androidx-lifecycle-viewmodel-navigation3 = { module = "androidx.lifecycle:lifecy
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 
 ## Koin compose
-##koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinVersion" }
-##koin-androidx-navigation = { module = "io.insert-koin:koin-androidx-navigation", version.ref = "koinVersion" }
-##koin-core-viewmodel = { module = "io.insert-koin:koin-core-viewmodel", version.ref = "koinVersion" }
-koin-navigation3 = {group = "io.insert-koin", name = "koin-compose-navigation3", version.ref = "koinVersion"}
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinVersion" }
+koin-navigation3 = { group = "io.insert-koin", name = "koin-compose-navigation3", version.ref = "koinVersion" }
 koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koinVersion" }
-koin-compose-viewmodel = {group = "io.insert-koin", name = "koin-compose-viewmodel", version.ref = "koinVersion"}
-koin-jsr330 = { module = "io.insert-koin:koin-jsr330", version.ref = "koinAnnotations" }
-javax-inject = {module = "javax.inject:javax.inject" , version = "1" }
-koin-annotations = { module = "io.insert-koin:koin-annotations", version.ref = "koinAnnotations" }
-koin-ksp-compiler = { module = "io.insert-koin:koin-ksp-compiler", version.ref = "koinAnnotations" }
+koin-compose-viewmodel = { group = "io.insert-koin", name = "koin-compose-viewmodel", version.ref = "koinVersion" }
 
 ## Retrofit And Moshi converter
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofitVersion" }

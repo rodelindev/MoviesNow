@@ -93,16 +93,10 @@ dependencies {
     implementation(libs.androidx.datastore.preferences)
 
     // Koin compose
-    //implementation(libs.koin.android)
-    //implementation(libs.koin.androidx.navigation)
-    //implementation(libs.koin.core.viewmodel)
+    implementation(libs.koin.android)
     implementation(libs.koin.navigation3)
-    //implementation(libs.koin.jsr330)
-    implementation(libs.javax.inject)
     implementation(libs.koin.androidx.compose)
     implementation(libs.koin.compose.viewmodel)
-    implementation(libs.koin.annotations)
-    ksp(libs.koin.ksp.compiler)
 
     // Retrofit
     implementation(libs.retrofit)
