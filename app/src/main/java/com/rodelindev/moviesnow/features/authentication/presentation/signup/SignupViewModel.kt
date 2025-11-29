@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.rodelindev.moviesnow.features.authentication.domain.usecase.SignupUseCases
 import com.rodelindev.moviesnow.features.authentication.presentation.utils.PasswordErrorParser
 import kotlinx.coroutines.launch
-import org.koin.android.annotation.KoinViewModel
 
 class SignupViewModel(
     private val signupUseCases: SignupUseCases

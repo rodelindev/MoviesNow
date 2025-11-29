@@ -9,7 +9,6 @@ import com.rodelindev.moviesnow.features.authentication.domain.usecase.LoginUseC
 import com.rodelindev.moviesnow.features.authentication.presentation.utils.PasswordErrorParser
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.koin.android.annotation.KoinViewModel
 
 class LoginViewModel(
     private val loginUseCases: LoginUseCases,

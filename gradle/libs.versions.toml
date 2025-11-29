@@ -18,7 +18,7 @@ nav3Lifecycle = "2.10.0"
 ## Kotlinx Serialization
 kotlinSerialization = "1.9.0"
 ## Koin Compose
-koinVersion = "4.2.0-alpha2"
+koinVersion = "4.2.0-alpha3"
 ## Paging Compose
 pagingCompose = "3.3.6"
 ## Retrofit and logging interceptor
