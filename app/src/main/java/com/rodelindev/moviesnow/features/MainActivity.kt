@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
     private fun getStartDestination(): NavigationRoute {
         return if (viewModel.isLoggedIn) {
             HomeRoute
-        } else { 
+        } else {
             Login
         }
     }
