@@ -1,4 +1,4 @@
-package com.rodelindev.moviesnow.navigation.navigationgraph
+package com.rodelindev.moviesnow.navigation.nav_entries
 
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavBackStack
@@ -9,7 +9,7 @@ import com.rodelindev.moviesnow.navigation.HomeRoute
 import com.rodelindev.moviesnow.navigation.Login
 import com.rodelindev.moviesnow.navigation.Signup
 
-fun EntryProviderScope<NavKey>.authenticationGraph(
+fun EntryProviderScope<NavKey>.authNavEntries(
     backStack: NavBackStack<NavKey>
 ) {
     entry<Login> {
