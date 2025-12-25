@@ -15,7 +15,7 @@ import androidx.navigation3.ui.NavDisplay
 import com.rodelindev.moviesnow.features.home.presentation.detail.MovieDetailScreen
 import com.rodelindev.moviesnow.features.home.presentation.detail.MovieDetailViewModel
 import com.rodelindev.moviesnow.features.home.presentation.home.MovieListScreen
-import com.rodelindev.moviesnow.navigation.nav_entries.authNavEntries
+import com.rodelindev.moviesnow.navigation.nav_entries.authNavEntry
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.parameter.parametersOf
 
@@ -50,7 +50,7 @@ fun NavigationRoot(
         },
         entryProvider = entryProvider {
             //Authentication Routes
-            authNavEntries(backStack)
+            authNavEntry(backStack)
             //Home Routes
             entry<HomeRoute> {
                 MovieListScreen(

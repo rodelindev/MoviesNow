@@ -9,7 +9,7 @@ import com.rodelindev.moviesnow.navigation.HomeRoute
 import com.rodelindev.moviesnow.navigation.Login
 import com.rodelindev.moviesnow.navigation.Signup
 
-fun EntryProviderScope<NavKey>.authNavEntries(
+fun EntryProviderScope<NavKey>.authNavEntry(
     backStack: NavBackStack<NavKey>
 ) {
     entry<Login> {
