@@ -68,11 +68,6 @@ fun NavigationRoot(
                 val detailViewModel = koinViewModel<MovieDetailViewModel> {
                     parametersOf(createdKey)
                 }
-                /*val detailViewModel = koinViewModel<MovieDetailViewModel>(
-                    parameters = {
-                        parametersOf(createdKey)
-                    }
-                )*/
                 MovieDetailScreen(
                     viewModel = detailViewModel,
                     onBack = { backStack.removeLastOrNull() }
