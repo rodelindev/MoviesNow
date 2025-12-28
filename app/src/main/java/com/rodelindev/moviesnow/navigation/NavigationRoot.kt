@@ -1,11 +1,11 @@
 package com.rodelindev.moviesnow.navigation
 
-import androidx.compose.animation.ContentTransform
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.togetherWith
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import androidx.navigation3.runtime.entryProvider
@@ -34,19 +34,19 @@ fun NavigationRoot(
             rememberViewModelStoreNavEntryDecorator(),
         ),
         transitionSpec = {
-            ContentTransform(
-                slideInHorizontally(animationSpec = tween(300)) + fadeIn(),
-                slideOutHorizontally(
-                    targetOffsetX = { -it },
-                    animationSpec = tween(300)
-                ) + fadeOut()
-            )
+            slideInHorizontally(
+                animationSpec = tween(300)
+            ) + fadeIn() togetherWith slideOutHorizontally(
+                targetOffsetX = { -it },
+                animationSpec = tween(300)
+            ) + fadeOut()
         },
         popTransitionSpec = {
-            ContentTransform(
-                slideInHorizontally(animationSpec = tween(300)) + fadeIn(),
-                slideOutHorizontally(animationSpec = tween(300)) + fadeOut()
-            )
+            slideInHorizontally(
+                animationSpec = tween(300)
+            ) + fadeIn() togetherWith slideOutHorizontally(
+                animationSpec = tween(300)
+            ) + fadeOut()
         },
         entryProvider = entryProvider {
             //Authentication Routes
