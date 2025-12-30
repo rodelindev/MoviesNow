@@ -8,6 +8,9 @@ espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.10.0"
 activityCompose = "1.12.2"
 composeBom = "2025.12.01"
+minSdk = "26"
+compileSdk = "36"
+targetSdk = "36"
 
 ## External linbrarys
 ## KSP
