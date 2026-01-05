@@ -1,11 +1,5 @@
 package com.rodelindev.moviesnow.navigation
 
-import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.animation.togetherWith
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import androidx.navigation3.runtime.entryProvider
@@ -15,6 +9,8 @@ import androidx.navigation3.ui.NavDisplay
 import com.rodelindev.moviesnow.features.home.presentation.detail.MovieDetailScreen
 import com.rodelindev.moviesnow.features.home.presentation.detail.MovieDetailViewModel
 import com.rodelindev.moviesnow.features.home.presentation.home.MovieListScreen
+import com.rodelindev.moviesnow.navigation.components.enterTransitionSpec
+import com.rodelindev.moviesnow.navigation.components.popTransitionSpec
 import com.rodelindev.moviesnow.navigation.nav_entries.authNavEntry
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.parameter.parametersOf
@@ -33,21 +29,8 @@ fun NavigationRoot(
             rememberSaveableStateHolderNavEntryDecorator(),
             rememberViewModelStoreNavEntryDecorator(),
         ),
-        transitionSpec = {
-            slideInHorizontally(
-                animationSpec = tween(300)
-            ) + fadeIn() togetherWith slideOutHorizontally(
-                targetOffsetX = { -it },
-                animationSpec = tween(300)
-            ) + fadeOut()
-        },
-        popTransitionSpec = {
-            slideInHorizontally(
-                animationSpec = tween(300)
-            ) + fadeIn() togetherWith slideOutHorizontally(
-                animationSpec = tween(300)
-            ) + fadeOut()
-        },
+        transitionSpec = { enterTransitionSpec() },
+        popTransitionSpec = { popTransitionSpec() },
         entryProvider = entryProvider {
             //Authentication Routes
             authNavEntry(backStack)
