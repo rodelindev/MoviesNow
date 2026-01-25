@@ -22,9 +22,7 @@ class MainActivity : ComponentActivity() {
             MoviesNowTheme {
                 NavigationRoot(
                     startDestination = getStartDestination(),
-                    logout = {
-                        viewModel.logout()
-                    }
+                    logout = viewModel::logout
                 )
             }
         }
