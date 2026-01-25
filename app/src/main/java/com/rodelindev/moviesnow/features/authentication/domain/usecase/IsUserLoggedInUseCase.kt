@@ -1,12 +1,9 @@
 package com.rodelindev.moviesnow.features.authentication.domain.usecase
 
 import com.rodelindev.moviesnow.features.authentication.domain.repository.AuthRepository
-import kotlinx.coroutines.flow.Flow
 
-class GetUserIdUseCase(
+class IsUserLoggedInUseCase(
     private val repository: AuthRepository
 ) {
-    operator fun invoke(): Flow<String?> {
-        return repository.getUserId()
-    }
+    operator fun invoke() = repository.isUserLoggedIn()
 }

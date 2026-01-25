@@ -31,10 +31,9 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun getStartDestination(): NavigationRoute {
-        return if (viewModel.isLoggedIn) {
-            HomeRoute
-        } else {
-            Login
+        return when {
+            viewModel.isLoggedIn -> HomeRoute
+            else -> Login
         }
     }
 }

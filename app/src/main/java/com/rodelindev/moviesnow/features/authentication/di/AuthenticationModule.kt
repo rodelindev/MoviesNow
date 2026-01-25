@@ -1,12 +1,13 @@
 package com.rodelindev.moviesnow.features.authentication.di
 
-import com.rodelindev.moviesnow.features.authentication.data.datastore.TokenManager
-import com.rodelindev.moviesnow.features.authentication.data.datastore.TokenManagerImpl
+import com.rodelindev.moviesnow.features.authentication.data.datastore.preferences.TokenManager
+import com.rodelindev.moviesnow.features.authentication.data.datastore.preferences.TokenManagerImpl
 import com.rodelindev.moviesnow.features.authentication.data.matcher.EmailMatcherImpl
 import com.rodelindev.moviesnow.features.authentication.data.network.AuthApi
 import com.rodelindev.moviesnow.features.authentication.data.repository.AuthenticationRepositoryImpl
 import com.rodelindev.moviesnow.features.authentication.domain.repository.AuthRepository
 import com.rodelindev.moviesnow.features.authentication.domain.usecase.GetUserIdUseCase
+import com.rodelindev.moviesnow.features.authentication.domain.usecase.IsUserLoggedInUseCase
 import com.rodelindev.moviesnow.features.authentication.domain.usecase.LoginUseCases
 import com.rodelindev.moviesnow.features.authentication.domain.usecase.LogoutUseCase
 import com.rodelindev.moviesnow.features.authentication.domain.usecase.SignupUseCases
@@ -32,6 +33,7 @@ val authenticationModule = module {
     factoryOf(::SignupUseCases)
     factoryOf(::LogoutUseCase)
     factoryOf(::GetUserIdUseCase)
+    factoryOf(::IsUserLoggedInUseCase)
 
     // View Models
     viewModelOf(::LoginViewModel)
