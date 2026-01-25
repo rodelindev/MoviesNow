@@ -2,7 +2,7 @@ package com.rodelindev.moviesnow.core.datastore.preferences
 
 import android.content.Context
 import androidx.datastore.preferences.core.edit
-import com.rodelindev.moviesnow.core.datastore.TOKEN_KEY
+import androidx.datastore.preferences.core.stringPreferencesKey
 import com.rodelindev.moviesnow.core.datastore.dataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -12,6 +12,10 @@ import kotlinx.coroutines.runBlocking
 class UserPreferencesImpl(
     private val context: Context,
 ) : UserPreferences {
+
+    companion object {
+        val TOKEN_KEY = stringPreferencesKey("jwt_token")
+    }
 
     override suspend fun saveToken(token: String) {
         context.dataStore.edit { preferences ->
