@@ -5,6 +5,7 @@ import com.rodelindev.moviesnow.features.authentication.data.model.AuthRequest
 import com.rodelindev.moviesnow.features.authentication.data.network.AuthApi
 import com.rodelindev.moviesnow.features.authentication.domain.repository.AuthRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.runBlocking
 
 class AuthenticationRepositoryImpl(
     private val api: AuthApi,
@@ -44,8 +45,10 @@ class AuthenticationRepositoryImpl(
         return dataStore.getSessionId()
     }
 
-    override fun isUserLoggedIn(): Flow<Boolean> {
-        return dataStore.isUserLoggedIn()
+    override fun isUserLoggedIn(): Boolean {
+        return runBlocking {
+            dataStore.isUserLoggedIn()
+        }
     }
 
     override suspend fun logout() {
