@@ -2,7 +2,7 @@ package com.rodelindev.moviesnow.core.datastore.preferences
 
 import kotlinx.coroutines.flow.Flow
 
-interface TokenManager {
+interface UserPreferences {
     suspend fun saveToken(token: String)
     fun getSessionId(): Flow<String?>
     suspend fun deleteToken()

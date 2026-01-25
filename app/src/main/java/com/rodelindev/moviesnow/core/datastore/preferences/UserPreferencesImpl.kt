@@ -9,9 +9,9 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
 
-class TokenManagerImpl(
+class UserPreferencesImpl(
     private val context: Context,
-) : TokenManager {
+) : UserPreferences {
 
     override suspend fun saveToken(token: String) {
         context.dataStore.edit { preferences ->
