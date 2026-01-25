@@ -24,8 +24,9 @@ class UserPreferencesImpl(
     }
 
     override fun getSessionId(): Flow<String?> {
-        return context.dataStore.data
-            .map { preferences -> preferences[TOKEN_KEY].orEmpty() }
+        return context.dataStore.data.map { preferences ->
+            preferences[TOKEN_KEY].orEmpty()
+        }
     }
 
     override suspend fun deleteToken() {
