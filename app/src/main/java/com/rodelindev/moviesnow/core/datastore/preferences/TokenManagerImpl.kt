@@ -30,11 +30,9 @@ class TokenManagerImpl(
         }
     }
 
-    override fun isUserLoggedIn(): Boolean {
-        return runBlocking {
-            context.dataStore.data.map { preferences ->
-                preferences[TOKEN_KEY].isNullOrBlank()
-            }.first()
-        }
+    override fun isUserLoggedIn(): Boolean = runBlocking {
+        context.dataStore.data.map { preferences ->
+            preferences[TOKEN_KEY].isNullOrBlank()
+        }.first()
     }
 }
