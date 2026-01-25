@@ -1,6 +1,6 @@
 package com.rodelindev.moviesnow.features.authentication.data.repository
 
-import com.rodelindev.moviesnow.features.authentication.data.datastore.preferences.TokenManager
+import com.rodelindev.moviesnow.core.datastore.preferences.TokenManager
 import com.rodelindev.moviesnow.features.authentication.data.model.AuthRequest
 import com.rodelindev.moviesnow.features.authentication.data.network.AuthApi
 import com.rodelindev.moviesnow.features.authentication.domain.repository.AuthRepository

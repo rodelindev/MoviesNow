@@ -1,7 +1,5 @@
 package com.rodelindev.moviesnow.features.authentication.di
 
-import com.rodelindev.moviesnow.features.authentication.data.datastore.preferences.TokenManager
-import com.rodelindev.moviesnow.features.authentication.data.datastore.preferences.TokenManagerImpl
 import com.rodelindev.moviesnow.features.authentication.data.matcher.EmailMatcherImpl
 import com.rodelindev.moviesnow.features.authentication.data.network.AuthApi
 import com.rodelindev.moviesnow.features.authentication.data.repository.AuthenticationRepositoryImpl
@@ -24,7 +22,6 @@ val authenticationModule = module {
     single<AuthApi> { get<Retrofit>().create<AuthApi>() }
 
     //Repository implementation
-    factoryOf(::TokenManagerImpl) { bind<TokenManager>()  }
     factoryOf(::AuthenticationRepositoryImpl) { bind<AuthRepository>() }
     factoryOf(::EmailMatcherImpl)
 

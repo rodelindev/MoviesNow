@@ -1,4 +1,4 @@
-package com.rodelindev.moviesnow.features.authentication.data.datastore.preferences
+package com.rodelindev.moviesnow.core.datastore.preferences
 
 import kotlinx.coroutines.flow.Flow
 

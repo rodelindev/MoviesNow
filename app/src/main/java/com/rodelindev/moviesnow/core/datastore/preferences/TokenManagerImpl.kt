@@ -1,9 +1,9 @@
-package com.rodelindev.moviesnow.features.authentication.data.datastore.preferences
+package com.rodelindev.moviesnow.core.datastore.preferences
 
 import android.content.Context
 import androidx.datastore.preferences.core.edit
-import com.rodelindev.moviesnow.features.authentication.data.datastore.TOKEN_KEY
-import com.rodelindev.moviesnow.features.authentication.data.datastore.dataStore
+import com.rodelindev.moviesnow.core.datastore.TOKEN_KEY
+import com.rodelindev.moviesnow.core.datastore.dataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map

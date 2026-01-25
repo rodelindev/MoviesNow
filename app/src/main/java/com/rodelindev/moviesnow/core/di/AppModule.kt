@@ -14,7 +14,8 @@ val appModule = module {
             dispatchersModule,
             networkModule,
             authenticationModule,
-            homeModule
+            homeModule,
+            preferencesModule
         )
     )
 

@@ -1,4 +1,4 @@
-package com.rodelindev.moviesnow.features.authentication.data.datastore
+package com.rodelindev.moviesnow.core.datastore
 
 import android.content.Context
 import androidx.datastore.core.DataStore
