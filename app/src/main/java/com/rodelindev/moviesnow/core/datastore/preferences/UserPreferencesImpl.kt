@@ -14,7 +14,7 @@ class UserPreferencesImpl(
 ) : UserPreferences {
 
     companion object {
-        val TOKEN_KEY = stringPreferencesKey("jwt_token")
+        private val TOKEN_KEY = stringPreferencesKey("jwt_token")
     }
 
     override suspend fun saveToken(token: String) {
