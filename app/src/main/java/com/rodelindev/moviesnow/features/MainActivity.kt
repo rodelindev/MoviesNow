@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
+    
     private fun getStartDestination(): NavigationRoute {
         return when {
             viewModel.isLoggedIn -> HomeRoute
