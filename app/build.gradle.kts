@@ -62,6 +62,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.datastore.preferences.core)
 
     // Android Testing
     testImplementation(libs.junit)
@@ -85,7 +86,6 @@ dependencies {
 
     // Data Store
     implementation(libs.androidx.datastore.preferences)
-    implementation(libs.androidx.datastore.preferences.core)
 
     // Koin compose
     implementation(libs.koin.android)
