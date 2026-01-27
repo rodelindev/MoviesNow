@@ -13,9 +13,9 @@ val appModule = module {
         listOf(
             dispatchersModule,
             networkModule,
+            preferencesModule,
             authenticationModule,
-            homeModule,
-            preferencesModule
+            homeModule
         )
     )
 
