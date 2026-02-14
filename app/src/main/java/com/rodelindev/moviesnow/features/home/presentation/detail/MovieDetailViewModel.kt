@@ -28,12 +28,10 @@ class MovieDetailViewModel(
             initialValue = MovieDetailState()
         )
 
-    private fun getMovieById(movieId: Int) {
-        _state.update { uiState ->
-            uiState.copy(isLoading = true)
-        }
+    private fun getMovieById(id: Int) {
+        _state.update { it.copy(isLoading = true) }
         viewModelScope.launch {
-            getMovieByIdUseCase(movieId = movieId).onSuccess { movie ->
+            getMovieByIdUseCase(movieId = id).onSuccess { movie ->
                 _state.update { uiState ->
                     uiState.copy(
                         isLoading = false,

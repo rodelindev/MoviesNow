@@ -24,6 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -34,7 +35,7 @@ import com.rodelindev.moviesnow.features.home.domain.model.Movie
 
 @Composable
 fun MovieDetailScreen(
-    viewModel: MovieDetailViewModel /*= koinViewModel()*/,
+    viewModel: MovieDetailViewModel,
     onBack: () -> Unit,
 ) {
 
@@ -52,7 +53,7 @@ fun MovieDetailScreen(
 
         state.error != null -> {
             ErrorView(
-                message = state.error ?: "Unknown error occurred",
+                message = state.error ?: stringResource(R.string.unknown_error_message),
                 onRetry = { },
                 modifier = Modifier.fillMaxSize()
             )
@@ -112,7 +113,7 @@ fun MovieDetailContent(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(500.dp)
+                    .height(600.dp)
                     .padding(horizontal = 16.dp)
                     .clip(
                         RoundedCornerShape(20.dp)

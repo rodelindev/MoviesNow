@@ -18,10 +18,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
+import com.rodelindev.moviesnow.R
 import com.rodelindev.moviesnow.core.presentation.components.CustomProgressIndicator
 import com.rodelindev.moviesnow.core.presentation.components.ErrorView
 import com.rodelindev.moviesnow.core.presentation.components.MovieCard
@@ -53,7 +55,7 @@ fun MovieListScreen(
 
             moviesState.loadState.hasError -> {
                 ErrorView(
-                    message = "Error Network",
+                    message = stringResource(R.string.error_network_message),
                     onRetry = {
                         moviesState.apply {
                             refresh()

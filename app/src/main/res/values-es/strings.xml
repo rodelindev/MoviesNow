@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Movies Now</string>
+    <!--Error Message-->
+    <string name="unknown_error_message">Se produjo un error desconocido</string>
+    <string name="error_network_message">Error de red</string>
+</resources>

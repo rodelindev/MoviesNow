@@ -9,7 +9,7 @@ import kotlinx.coroutines.runBlocking
 
 class AuthenticationRepositoryImpl(
     private val api: AuthApi,
-    private val dataStore: UserPreferences
+    private val dataStore: UserPreferences,
 ) : AuthRepository {
 
     override suspend fun login(username: String, password: String): Result<Unit> {
@@ -45,10 +45,8 @@ class AuthenticationRepositoryImpl(
         return dataStore.getSessionId()
     }
 
-    override fun isUserLoggedIn(): Boolean {
-        return runBlocking {
-            dataStore.isUserLoggedIn()
-        }
+    override fun isUserLoggedIn(): Boolean = runBlocking {
+        dataStore.isUserLoggedIn()
     }
 
     override suspend fun logout() {
