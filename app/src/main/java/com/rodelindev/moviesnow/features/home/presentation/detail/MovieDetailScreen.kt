@@ -51,9 +51,9 @@ fun MovieDetailScreen(
             }
         }
 
-        state.error != null -> {
+        state.errorMessage != null -> {
             ErrorView(
-                message = state.error ?: stringResource(R.string.unknown_error_message),
+                message = state.errorMessage ?: stringResource(R.string.unknown_error_message),
                 onRetry = { },
                 modifier = Modifier.fillMaxSize()
             )

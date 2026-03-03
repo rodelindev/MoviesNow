@@ -42,7 +42,7 @@ class MovieDetailViewModel(
                 _state.update { uiState ->
                     uiState.copy(
                         isLoading = false,
-                        error = it.message
+                        errorMessage = it.message
                     )
                 }
             }
