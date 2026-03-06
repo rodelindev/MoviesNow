@@ -20,7 +20,7 @@ class MovieDetailViewModel(
     private val _state = MutableStateFlow(MovieDetailState())
     val state: StateFlow<MovieDetailState> = _state
         .onStart {
-            getMovieById(movie.movieId)
+            getMovieById()
         }
         .stateIn(
             scope = viewModelScope,
@@ -28,10 +28,10 @@ class MovieDetailViewModel(
             initialValue = MovieDetailState()
         )
 
-    private fun getMovieById(id: Int) {
+    private fun getMovieById() {
         _state.update { it.copy(isLoading = true) }
         viewModelScope.launch {
-            getMovieByIdUseCase(movieId = id).onSuccess { movie ->
+            getMovieByIdUseCase(movieId = movie.movieId).onSuccess { movie ->
                 _state.update { uiState ->
                     uiState.copy(
                         isLoading = false,
