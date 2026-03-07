@@ -26,12 +26,14 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
 import com.rodelindev.moviesnow.R
 import com.rodelindev.moviesnow.core.presentation.components.ErrorView
 import com.rodelindev.moviesnow.features.home.domain.model.Movie
+import com.rodelindev.moviesnow.ui.theme.MoviesNowTheme
 
 @Composable
 fun MovieDetailScreen(
@@ -129,5 +131,31 @@ fun MovieDetailContent(
                 textAlign = TextAlign.Center
             )
         }
+    }
+}
+
+@Preview
+@Composable
+fun MovieDetailPreview() {
+    MoviesNowTheme {
+        MovieDetailContent(
+            movie = Movie(
+                adult = false,
+                backdrop = "/hZkgoQYus5vegHoetLkCJzb17zJ.jpg",
+                genreIds = null,
+                id = 550,
+                originalLanguage = "en",
+                originalTitle = "Fight Club",
+                overview = "A ticking-time-bomb insomniac and a slippery soap salesman channel.",
+                popularity = 61.416,
+                poster = "/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
+                releaseDate = "1999-10-15",
+                title = "Fight Club",
+                video = false,
+                voteAverage = 8.433,
+                voteCount = 26280
+            ),
+            onNavigateUp = {}
+        )
     }
 }
