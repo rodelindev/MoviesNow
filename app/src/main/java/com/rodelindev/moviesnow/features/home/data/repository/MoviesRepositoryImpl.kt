@@ -12,7 +12,7 @@ import com.rodelindev.moviesnow.features.home.domain.repository.MoviesRepository
 import kotlinx.coroutines.flow.Flow
 
 class MoviesRepositoryImpl(
-    private val movieService: MovieDBService
+    private val service: MovieDBService
 ): MoviesRepository {
 
     override fun getMovieList(): Flow<PagingData<Movie>> {
@@ -23,13 +23,13 @@ class MoviesRepositoryImpl(
             ),
             pagingSourceFactory = {
                 MoviesPagingSource(
-                    api = movieService,
+                    service = service,
                 )
             }
         ).flow
     }
 
     override suspend fun getMovieById(movieId: Int): Result<Movie> = resultOf {
-        movieService.getMovieById(movieId = movieId).toDomain()
+        service.getMovieById(movieId = movieId).toDomain()
     }
 }

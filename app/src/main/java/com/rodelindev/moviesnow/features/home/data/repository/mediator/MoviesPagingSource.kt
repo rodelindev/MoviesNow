@@ -8,7 +8,7 @@ import com.rodelindev.moviesnow.features.home.domain.model.Movie
 
 
 class MoviesPagingSource(
-    private val api: MovieDBService,
+    private val service: MovieDBService,
 ) : PagingSource<Int, Movie>() {
 
     override fun getRefreshKey(state: PagingState<Int, Movie>): Int? {
@@ -21,7 +21,7 @@ class MoviesPagingSource(
         val pageNumber = params.key ?: 1
 
         return try {
-            val response = api.getMovieList(page = pageNumber)
+            val response = service.getMovieList(page = pageNumber)
             val movie = response.results.toListDomain()
 
             LoadResult.Page(
