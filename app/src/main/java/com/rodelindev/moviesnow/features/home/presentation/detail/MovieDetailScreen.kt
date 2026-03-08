@@ -2,6 +2,7 @@
 
 package com.rodelindev.moviesnow.features.home.presentation.detail
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,6 +15,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -77,6 +79,7 @@ fun MovieDetailContent(
     onNavigateUp: () -> Unit,
 ) {
     Scaffold(
+        modifier = Modifier.background(MaterialTheme.colorScheme.background),
         topBar = {
             TopAppBar(
                 title = { },
@@ -110,7 +113,7 @@ fun MovieDetailContent(
             verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
             AsyncImage(
-                model =  movie?.poster,
+                model = movie?.poster,
                 contentDescription = movie?.title,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

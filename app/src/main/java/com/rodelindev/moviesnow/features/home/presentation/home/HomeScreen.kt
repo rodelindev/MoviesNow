@@ -45,7 +45,10 @@ fun MovieListScreen(
 
     val moviesState = viewModel.state.collectAsLazyPagingItems()
 
-    Scaffold { paddingValues ->
+    Scaffold(
+        modifier = Modifier
+            .background(MaterialTheme.colorScheme.background)
+    ) { paddingValues ->
         when {
             moviesState.loadState.refresh is LoadState.Loading && moviesState.itemCount == 0 -> {
                 CustomProgressIndicator(
@@ -91,7 +94,6 @@ fun MovieListContent(
         modifier = Modifier
             .fillMaxSize()
             .padding(paddingValues)
-            .background(MaterialTheme.colorScheme.background)
     ) {
         LazyVerticalGrid(
             columns = GridCells.Adaptive(150.dp),
@@ -133,12 +135,12 @@ fun MovieListContent(
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
     MoviesNowTheme {
 
-        val movieList = List(20) { index ->
+        val movieList = List(10) { index ->
             Movie(
                 id = index,
                 title = "Película $index",
@@ -159,7 +161,7 @@ fun HomeScreenPreview() {
         val mockMovies = flowOf(PagingData.from(movieList)).collectAsLazyPagingItems()
 
         MovieListContent(
-            paddingValues = PaddingValues(16.dp),
+            paddingValues = PaddingValues(10.dp),
             movies = mockMovies,
             onMovieClick = {}
         )
