@@ -33,7 +33,7 @@ fun NavigationRoot(
             authNavEntry(backStack)
             //Home Routes
             homeEntry(backStack, logout)
-            //Detail Routes
+            //Detail Movie Routes
             detailEntry(backStack)
         }
     )
