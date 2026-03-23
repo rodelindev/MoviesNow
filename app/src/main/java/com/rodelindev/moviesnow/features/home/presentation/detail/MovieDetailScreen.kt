@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
 import com.rodelindev.moviesnow.R
-import com.rodelindev.moviesnow.core.presentation.components.ErrorView
+import com.rodelindev.moviesnow.core.presentation.ErrorView
 import com.rodelindev.moviesnow.features.home.domain.model.Movie
 import com.rodelindev.moviesnow.ui.theme.MoviesNowTheme
 

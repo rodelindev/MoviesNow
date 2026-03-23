@@ -1,4 +1,4 @@
-package com.rodelindev.moviesnow.features.home.data.network.interceptor
+package com.rodelindev.moviesnow.core.data.network.interceptor
 
 
 import okhttp3.Interceptor

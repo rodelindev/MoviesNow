@@ -28,9 +28,9 @@ import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.rodelindev.moviesnow.R
-import com.rodelindev.moviesnow.core.presentation.components.CustomProgressIndicator
-import com.rodelindev.moviesnow.core.presentation.components.ErrorView
-import com.rodelindev.moviesnow.core.presentation.components.MovieCard
+import com.rodelindev.moviesnow.core.presentation.CustomProgressIndicator
+import com.rodelindev.moviesnow.core.presentation.ErrorView
+import com.rodelindev.moviesnow.core.presentation.MovieCard
 import com.rodelindev.moviesnow.features.home.domain.model.Movie
 import com.rodelindev.moviesnow.ui.theme.MoviesNowTheme
 import kotlinx.coroutines.flow.flowOf
@@ -49,6 +49,7 @@ fun MovieListScreen(
         modifier = Modifier
             .background(MaterialTheme.colorScheme.background)
     ) { paddingValues ->
+        
         when {
             moviesState.loadState.refresh is LoadState.Loading && moviesState.itemCount == 0 -> {
                 CustomProgressIndicator(

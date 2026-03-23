@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalSharedTransitionApi::class)
 
-package com.rodelindev.moviesnow.core.presentation.components
+package com.rodelindev.moviesnow.core.presentation
 
 
 import androidx.compose.animation.ExperimentalSharedTransitionApi

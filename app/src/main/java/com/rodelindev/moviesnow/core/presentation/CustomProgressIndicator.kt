@@ -1,4 +1,4 @@
-package com.rodelindev.moviesnow.core.presentation.components
+package com.rodelindev.moviesnow.core.presentation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

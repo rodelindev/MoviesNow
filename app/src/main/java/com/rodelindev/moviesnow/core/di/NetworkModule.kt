@@ -1,6 +1,6 @@
 package com.rodelindev.moviesnow.core.di
 
-import com.rodelindev.moviesnow.features.home.data.network.interceptor.ApiKeyInterceptor
+import com.rodelindev.moviesnow.core.data.network.interceptor.ApiKeyInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.qualifier.named
