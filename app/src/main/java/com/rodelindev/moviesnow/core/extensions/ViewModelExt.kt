@@ -1,4 +1,4 @@
-package com.rodelindev.moviesnow.core.extension
+package com.rodelindev.moviesnow.core.extensions
 
 /*context(viewModel: ViewModel)
 fun <T> Flow<T>.stateInWhileSubscribed(initialValue: T): StateFlow<T> {
