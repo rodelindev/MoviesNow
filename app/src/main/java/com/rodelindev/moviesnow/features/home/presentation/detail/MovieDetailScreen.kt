@@ -6,9 +6,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
@@ -117,21 +116,20 @@ fun MovieDetailContent(
                 contentDescription = movie?.title,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(600.dp)
                     .padding(horizontal = 16.dp)
-                    .clip(
-                        RoundedCornerShape(20.dp)
-                    )
-                /*.width(180.dp)
-                .aspectRatio(2 / 3f)*/
+                    .aspectRatio(2 / 3f)
+                    .clip(RoundedCornerShape(20.dp))
             )
             Text(
                 text = movie?.title ?: "",
                 modifier = Modifier
-                    .padding(horizontal = 30.dp)
                     .align(Alignment.CenterHorizontally),
                 textAlign = TextAlign.Center
+            )
+            Text(
+                text = movie?.overview ?: "",
+                modifier = Modifier
+                    .padding(horizontal = 16.dp)
             )
         }
     }
