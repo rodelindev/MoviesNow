@@ -9,7 +9,7 @@ import androidx.navigation3.ui.NavDisplay
 import com.rodelindev.moviesnow.navigation.components.enterTransitionSpec
 import com.rodelindev.moviesnow.navigation.components.popTransitionSpec
 import com.rodelindev.moviesnow.navigation.nav_entries.authNavEntry
-import com.rodelindev.moviesnow.navigation.nav_entries.detailEntry
+import com.rodelindev.moviesnow.navigation.nav_entries.detailsEntry
 import com.rodelindev.moviesnow.navigation.nav_entries.homeEntry
 
 @Composable
@@ -34,7 +34,7 @@ fun NavigationRoot(
             //Home Routes
             homeEntry(backStack, logout)
             //Detail Movie Routes
-            detailEntry(backStack)
+            detailsEntry(backStack)
         }
     )
 }

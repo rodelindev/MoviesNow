@@ -24,7 +24,7 @@ fun MovieDTO.toDomain(): Movie {
 
 
 fun List<MovieDTO>.toListDomain(): List<Movie> {
-    return this.map { movieDTO ->
-        movieDTO.toDomain()
+    return this.map { movieDto ->
+        movieDto.toDomain()
     }
 }

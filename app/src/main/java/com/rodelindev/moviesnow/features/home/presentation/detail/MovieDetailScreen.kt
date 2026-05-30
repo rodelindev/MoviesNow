@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
@@ -26,9 +27,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImage
 import com.rodelindev.moviesnow.R
@@ -117,17 +120,23 @@ fun MovieDetailContent(
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .padding(horizontal = 16.dp)
-                    .aspectRatio(2 / 3f)
+                    .aspectRatio(3 / 4f)
                     .clip(RoundedCornerShape(20.dp))
             )
             Text(
                 text = movie?.title ?: "",
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
+                maxLines = 2,
+                fontSize = 25.sp,
                 modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp)
                     .align(Alignment.CenterHorizontally),
-                textAlign = TextAlign.Center
             )
             Text(
                 text = movie?.overview ?: "",
+                textAlign = TextAlign.Justify,
                 modifier = Modifier
                     .padding(horizontal = 16.dp)
             )

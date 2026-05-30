@@ -141,10 +141,10 @@ fun MovieListContent(
 fun HomeScreenPreview() {
     MoviesNowTheme {
 
-        val movieList = List(10) { index ->
+        val movieList = List(20) { index ->
             Movie(
                 id = index,
-                title = "Película $index",
+                title = "Movie $index",
                 adult = false,
                 backdrop = "/hZkgoQYus5vegHoetLkCJzb17zJ.jpg",
                 poster = "/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",

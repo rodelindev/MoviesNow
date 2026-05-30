@@ -12,9 +12,7 @@ plugins {
 android {
     namespace = "com.rodelindev.moviesnow"
     compileSdk {
-        version = release(libs.versions.compileSdk.get().toInt()) {
-            minorApiLevel = 1
-        }
+        version = release(libs.versions.compileSdk.get().toInt())
     }
 
     defaultConfig {

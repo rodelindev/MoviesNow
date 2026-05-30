@@ -2,7 +2,6 @@
 
 package com.rodelindev.moviesnow.core.presentation
 
-
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -54,10 +53,7 @@ fun MovieCard(
                 maxLines = 1,
                 fontSize = 18.sp,
                 modifier = Modifier
-                    .padding(
-                        vertical = 10.dp,
-                        horizontal = 15.dp
-                    )
+                    .padding(vertical = 10.dp, horizontal = 15.dp)
             )
         }
     }

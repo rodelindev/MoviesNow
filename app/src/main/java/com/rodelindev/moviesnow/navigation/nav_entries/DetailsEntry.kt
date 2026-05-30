@@ -9,7 +9,7 @@ import com.rodelindev.moviesnow.navigation.MovieDetail
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.parameter.parametersOf
 
-fun EntryProviderScope<NavKey>.detailEntry(
+fun EntryProviderScope<NavKey>.detailsEntry(
     backStack: NavBackStack<NavKey>,
 ) {
     entry<MovieDetail> { createdKey ->
