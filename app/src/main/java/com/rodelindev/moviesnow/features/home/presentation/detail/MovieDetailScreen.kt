@@ -10,7 +10,10 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -111,7 +114,8 @@ fun MovieDetailContent(
         Column(
             modifier = modifier
                 .fillMaxSize()
-                .padding(innerPadding),
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(20.dp),
         ) {
             AsyncImage(
@@ -119,8 +123,10 @@ fun MovieDetailContent(
                 contentDescription = movie?.title,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
+                    .width(280.dp)
+                    .aspectRatio(2 / 3f)
                     .padding(horizontal = 16.dp)
-                    .aspectRatio(3 / 4f)
+                    .align(Alignment.CenterHorizontally)
                     .clip(RoundedCornerShape(20.dp))
             )
             Text(
