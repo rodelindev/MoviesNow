@@ -5,7 +5,7 @@ import com.rodelindev.moviesnow.features.authentication.data.model.TokenResponse
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-interface AuthApi {
+interface AuthApiService {
 
     @POST("")
     suspend fun signIn(

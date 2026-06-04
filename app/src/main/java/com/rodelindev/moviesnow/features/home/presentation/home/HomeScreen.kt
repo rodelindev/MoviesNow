@@ -101,10 +101,8 @@ fun MovieListContent(
             verticalArrangement = Arrangement.spacedBy(15.dp),
             horizontalArrangement = Arrangement.spacedBy(15.dp),
             contentPadding = PaddingValues(
-                start = 10.dp,
-                end = 10.dp,
-                top = 15.dp,
-                bottom = 15.dp
+                horizontal = 16.dp,
+                vertical = 15.dp
             ),
             state = rememberLazyGridState()
         ) {

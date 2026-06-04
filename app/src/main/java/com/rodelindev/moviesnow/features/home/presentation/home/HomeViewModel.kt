@@ -4,13 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import com.rodelindev.moviesnow.core.extensions.stateInWhileSubscribed
 import com.rodelindev.moviesnow.features.home.domain.model.Movie
 import com.rodelindev.moviesnow.features.home.domain.usecase.GetMoviesUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.onStart
-import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class HomeViewModel(
@@ -22,9 +22,7 @@ class HomeViewModel(
         .onStart {
             getCharacters()
         }
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5_000L),
+        .stateInWhileSubscribed(
             initialValue = PagingData.empty()
         )
 
@@ -33,7 +31,7 @@ class HomeViewModel(
             getMoviesUseCase()
                 .cachedIn(viewModelScope)
                 .collect { movie ->
-                    _state.value = movie
+                    _state.update { movie }
                 }
         }
     }

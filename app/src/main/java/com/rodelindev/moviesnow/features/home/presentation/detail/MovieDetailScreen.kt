@@ -134,7 +134,7 @@ fun MovieDetailContent(
                 textAlign = TextAlign.Center,
                 fontWeight = FontWeight.Bold,
                 maxLines = 2,
-                fontSize = 25.sp,
+                fontSize = 28.sp,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp)

@@ -8,11 +8,11 @@ import com.rodelindev.moviesnow.features.home.domain.usecase.GetMovieByIdUseCase
 import com.rodelindev.moviesnow.features.home.domain.usecase.GetMoviesUseCase
 import com.rodelindev.moviesnow.features.home.presentation.detail.MovieDetailViewModel
 import com.rodelindev.moviesnow.features.home.presentation.home.HomeViewModel
-import org.koin.core.module.dsl.bind
-import org.koin.core.module.dsl.factoryOf
-import org.koin.core.module.dsl.singleOf
-import org.koin.core.module.dsl.viewModelOf
+import org.koin.dsl.bind
 import org.koin.dsl.module
+import org.koin.plugin.module.dsl.factory
+import org.koin.plugin.module.dsl.single
+import org.koin.plugin.module.dsl.viewModel
 import retrofit2.Retrofit
 import retrofit2.create
 
@@ -21,14 +21,14 @@ val homeModule = module {
     single<MovieDBService> { get<Retrofit>().create<MovieDBService>() }
 
     // Repository Implementation
-    singleOf(::MoviesRepositoryImpl) { bind<MoviesRepository>() }
-
-    // View Model
-    viewModelOf(::MainViewModel)
-    viewModelOf(::HomeViewModel)
-    viewModelOf(::MovieDetailViewModel)
+    single<MoviesRepositoryImpl>() bind(MoviesRepository::class)
 
     //Use case
-    factoryOf(::GetMoviesUseCase)
-    factoryOf(::GetMovieByIdUseCase)
+    factory<GetMoviesUseCase>()
+    factory<GetMovieByIdUseCase>()
+
+    // View Models
+    viewModel<MainViewModel>()
+    viewModel<HomeViewModel>()
+    viewModel<MovieDetailViewModel>()
 }

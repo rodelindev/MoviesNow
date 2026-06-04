@@ -2,19 +2,18 @@ package com.rodelindev.moviesnow.features.home.presentation.detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.rodelindev.moviesnow.core.extensions.stateInWhileSubscribed
 import com.rodelindev.moviesnow.features.home.domain.usecase.GetMovieByIdUseCase
 import com.rodelindev.moviesnow.navigation.MovieDetail
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.onStart
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class MovieDetailViewModel(
     private val getMovieByIdUseCase: GetMovieByIdUseCase,
-    private val movie: MovieDetail
+    private val movie: MovieDetail,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(MovieDetailState())
@@ -22,16 +21,14 @@ class MovieDetailViewModel(
         .onStart {
             getMovieById()
         }
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5_000L),
+        .stateInWhileSubscribed(
             initialValue = MovieDetailState()
         )
 
     private fun getMovieById() {
         _state.update { it.copy(isLoading = true) }
         viewModelScope.launch {
-            getMovieByIdUseCase(movieId = movie.movieId).onSuccess { movie ->
+            getMovieByIdUseCase(movie.movieId).onSuccess { movie ->
                 _state.update { uiState ->
                     uiState.copy(
                         isLoading = false,

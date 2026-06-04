@@ -30,5 +30,5 @@ val networkModule = module {
         }
     }
 
-    factory { ApiKeyInterceptor(get(named(Qualifier.ApiKey))) }
+    factory { ApiKeyInterceptor(get<String>(named(Qualifier.ApiKey))) }
 }

@@ -7,6 +7,8 @@ plugins {
     alias(libs.plugins.kotlinx.serialization)
     // Kotlin ksp
     alias(libs.plugins.ksp)
+    //Koin Plugin
+    alias(libs.plugins.koin.compiler)
 }
 
 android {
@@ -49,10 +51,15 @@ android {
         compose = true
         buildConfig = true
     }
+    //noinspection WrongGradleMethod
+    kotlin {
+        compilerOptions {
+            freeCompilerArgs.add("-XXLanguage:+ContextParameters")
+        }
+    }
 }
 
 dependencies {
-
     // Android Core
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -92,6 +99,7 @@ dependencies {
     implementation(libs.koin.navigation3)
     implementation(libs.koin.androidx.compose)
     implementation(libs.koin.compose.viewmodel)
+    implementation(libs.koin.annotations)
 
     // Retrofit
     implementation(libs.retrofit)
