@@ -3,7 +3,7 @@ package com.rodelindev.moviesnow.features.home.data.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.rodelindev.moviesnow.features.home.data.extensions.resultOf
+import com.rodelindev.moviesnow.core.utils.resultOf
 import com.rodelindev.moviesnow.features.home.data.mapper.toDomain
 import com.rodelindev.moviesnow.features.home.data.network.services.MovieDBService
 import com.rodelindev.moviesnow.features.home.data.repository.mediator.MoviesPagingSource

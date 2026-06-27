@@ -95,6 +95,8 @@ dependencies {
     implementation(libs.androidx.datastore.preferences.core)
 
     // Koin compose
+    implementation(platform(libs.koin.bom))
+    implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.koin.navigation3)
     implementation(libs.koin.androidx.compose)

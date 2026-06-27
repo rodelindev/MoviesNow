@@ -155,6 +155,7 @@ fun MovieDetailContent(
 fun MovieDetailPreview() {
     MoviesNowTheme {
         MovieDetailContent(
+            onNavigateUp = { },
             movie = Movie(
                 adult = false,
                 backdrop = "/hZkgoQYus5vegHoetLkCJzb17zJ.jpg",
@@ -171,7 +172,6 @@ fun MovieDetailPreview() {
                 voteAverage = 8.433,
                 voteCount = 26280
             ),
-            onNavigateUp = {}
         )
     }
 }

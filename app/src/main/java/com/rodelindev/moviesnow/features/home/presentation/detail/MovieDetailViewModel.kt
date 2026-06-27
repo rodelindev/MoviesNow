@@ -10,18 +10,18 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import org.koin.core.annotation.InjectedParam
 
 class MovieDetailViewModel(
+    @InjectedParam private val movie: MovieDetail,
     private val getMovieByIdUseCase: GetMovieByIdUseCase,
-    private val movie: MovieDetail,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(MovieDetailState())
     val state: StateFlow<MovieDetailState> = _state
         .onStart {
             getMovieById()
-        }
-        .stateInWhileSubscribed(
+        }.stateInWhileSubscribed(
             initialValue = MovieDetailState()
         )
 

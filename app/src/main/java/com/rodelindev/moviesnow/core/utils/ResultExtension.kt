@@ -1,4 +1,4 @@
-package com.rodelindev.moviesnow.features.home.data.extensions
+package com.rodelindev.moviesnow.core.utils
 
 import kotlin.coroutines.cancellation.CancellationException
 

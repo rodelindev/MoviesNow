@@ -21,8 +21,7 @@ class HomeViewModel(
     val state: StateFlow<PagingData<Movie>> = _state
         .onStart {
             getCharacters()
-        }
-        .stateInWhileSubscribed(
+        }.stateInWhileSubscribed(
             initialValue = PagingData.empty()
         )
 

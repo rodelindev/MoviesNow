@@ -24,10 +24,9 @@ val authenticationModule = module {
 
     //Repository implementation
     factory<AuthenticationRepositoryImpl>() bind(AuthRepository::class)
-    factory<EmailMatcherImpl>()
+    factory<EmailMatcherImpl>() //bind(EmailMatcher::class)
 
     //Use cases
-    factory<LoginUseCases>()
     factory<LoginUseCases>()
     factory<SignupUseCases>()
     factory<LogoutUseCase>()

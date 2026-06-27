@@ -20,10 +20,10 @@ val homeModule = module {
     // Retrofit Service
     single<MovieDBService> { get<Retrofit>().create<MovieDBService>() }
 
-    // Repository Implementation
+    // Repositories
     single<MoviesRepositoryImpl>() bind(MoviesRepository::class)
 
-    //Use case
+    // Use Cases
     factory<GetMoviesUseCase>()
     factory<GetMovieByIdUseCase>()
 
