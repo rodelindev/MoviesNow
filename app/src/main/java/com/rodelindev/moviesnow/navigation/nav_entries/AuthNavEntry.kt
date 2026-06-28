@@ -29,9 +29,7 @@ fun EntryProviderScope<NavKey>.authNavEntry(
                 backStack.clear()
                 backStack.add(HomeRoute)
             },
-            onLogin = {
-                backStack.removeLastOrNull()
-            }
+            onLogin = backStack::removeLastOrNull
         )
     }
 }
