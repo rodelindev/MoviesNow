@@ -3,12 +3,12 @@ package com.rodelindev.moviesnow.features.home.data.repository.mediator
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.rodelindev.moviesnow.features.home.data.mapper.toListDomain
-import com.rodelindev.moviesnow.features.home.data.network.services.MovieDBService
+import com.rodelindev.moviesnow.features.home.data.network.services.IMovieDBService
 import com.rodelindev.moviesnow.features.home.domain.model.Movie
 
 
 class MoviesPagingSource(
-    private val service: MovieDBService,
+    private val service: IMovieDBService,
 ) : PagingSource<Int, Movie>() {
 
     override fun getRefreshKey(state: PagingState<Int, Movie>): Int? {

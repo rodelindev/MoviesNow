@@ -9,7 +9,6 @@ import org.koin.dsl.module
 val appModule = module {
     includes(
         listOf(
-            dispatchersModule,
             networkModule,
             preferencesModule,
             authenticationModule,
@@ -23,7 +22,5 @@ val appModule = module {
 
 enum class Qualifier {
     BaseUrl,
-    ApiKey,
-    Main,
-    IO
+    ApiKey
 }

@@ -2,15 +2,15 @@ package com.rodelindev.moviesnow.features.authentication.data.repository
 
 import com.rodelindev.moviesnow.core.datastore.preferences.UserPreferences
 import com.rodelindev.moviesnow.features.authentication.data.model.AuthRequest
-import com.rodelindev.moviesnow.features.authentication.data.network.AuthApiService
-import com.rodelindev.moviesnow.features.authentication.domain.repository.AuthRepository
+import com.rodelindev.moviesnow.features.authentication.data.network.IAuthApiService
+import com.rodelindev.moviesnow.features.authentication.domain.repository.IAuthRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.runBlocking
 
 class AuthenticationRepositoryImpl(
-    private val api: AuthApiService,
+    private val api: IAuthApiService,
     private val dataStore: UserPreferences,
-) : AuthRepository {
+) : IAuthRepository {
 
     override suspend fun login(username: String, password: String): Result<Unit> {
         return try {

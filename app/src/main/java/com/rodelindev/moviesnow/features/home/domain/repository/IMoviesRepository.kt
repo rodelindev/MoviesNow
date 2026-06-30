@@ -4,7 +4,7 @@ import androidx.paging.PagingData
 import com.rodelindev.moviesnow.features.home.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
-interface MoviesRepository {
+interface IMoviesRepository {
 
     fun getMovieList(): Flow<PagingData<Movie>>
 

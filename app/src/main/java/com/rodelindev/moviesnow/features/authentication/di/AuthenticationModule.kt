@@ -1,9 +1,9 @@
 package com.rodelindev.moviesnow.features.authentication.di
 
 import com.rodelindev.moviesnow.features.authentication.data.matcher.EmailMatcherImpl
-import com.rodelindev.moviesnow.features.authentication.data.network.AuthApiService
+import com.rodelindev.moviesnow.features.authentication.data.network.IAuthApiService
 import com.rodelindev.moviesnow.features.authentication.data.repository.AuthenticationRepositoryImpl
-import com.rodelindev.moviesnow.features.authentication.domain.repository.AuthRepository
+import com.rodelindev.moviesnow.features.authentication.domain.repository.IAuthRepository
 import com.rodelindev.moviesnow.features.authentication.domain.usecase.GetUserIdUseCase
 import com.rodelindev.moviesnow.features.authentication.domain.usecase.IsUserLoggedInUseCase
 import com.rodelindev.moviesnow.features.authentication.domain.usecase.LoginUseCases
@@ -20,13 +20,13 @@ import retrofit2.create
 
 val authenticationModule = module {
     // Api Service retrofit
-    single<AuthApiService> { get<Retrofit>().create<AuthApiService>() }
+    single<IAuthApiService> { get<Retrofit>().create<IAuthApiService>() }
 
-    //Repository implementation
-    factory<AuthenticationRepositoryImpl>() bind(AuthRepository::class)
+    // Repository implementation
+    factory<AuthenticationRepositoryImpl>() bind(IAuthRepository::class)
     factory<EmailMatcherImpl>() //bind(EmailMatcher::class)
 
-    //Use cases
+    // Use cases
     factory<LoginUseCases>()
     factory<SignupUseCases>()
     factory<LogoutUseCase>()

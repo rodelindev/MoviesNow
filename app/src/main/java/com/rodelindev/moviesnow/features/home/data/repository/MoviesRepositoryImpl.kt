@@ -5,15 +5,15 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.rodelindev.moviesnow.core.utils.resultOf
 import com.rodelindev.moviesnow.features.home.data.mapper.toDomain
-import com.rodelindev.moviesnow.features.home.data.network.services.MovieDBService
+import com.rodelindev.moviesnow.features.home.data.network.services.IMovieDBService
 import com.rodelindev.moviesnow.features.home.data.repository.mediator.MoviesPagingSource
 import com.rodelindev.moviesnow.features.home.domain.model.Movie
-import com.rodelindev.moviesnow.features.home.domain.repository.MoviesRepository
+import com.rodelindev.moviesnow.features.home.domain.repository.IMoviesRepository
 import kotlinx.coroutines.flow.Flow
 
 class MoviesRepositoryImpl(
-    private val service: MovieDBService
-): MoviesRepository {
+    private val service: IMovieDBService
+): IMoviesRepository {
 
     override fun getMovieList(): Flow<PagingData<Movie>> {
         return Pager(
