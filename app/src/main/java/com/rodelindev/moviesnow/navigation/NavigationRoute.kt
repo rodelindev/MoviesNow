@@ -15,8 +15,8 @@ data class MovieDetail(val movieId: Int): NavigationRoute
 
 // Authentication Routes
 @Serializable
-data object Login: NavigationRoute
+data object LoginRoute: NavigationRoute
 
 @Serializable
-data object Signup: NavigationRoute
+data object SignupRoute: NavigationRoute
 

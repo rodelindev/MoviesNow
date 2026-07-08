@@ -6,24 +6,24 @@ import androidx.navigation3.runtime.NavKey
 import com.rodelindev.moviesnow.features.authentication.presentation.login.LoginRoot
 import com.rodelindev.moviesnow.features.authentication.presentation.signup.SignupRoot
 import com.rodelindev.moviesnow.navigation.HomeRoute
-import com.rodelindev.moviesnow.navigation.Login
-import com.rodelindev.moviesnow.navigation.Signup
+import com.rodelindev.moviesnow.navigation.LoginRoute
+import com.rodelindev.moviesnow.navigation.SignupRoute
 
 fun EntryProviderScope<NavKey>.authNavEntry(
     backStack: NavBackStack<NavKey>
 ) {
-    entry<Login> {
+    entry<LoginRoute> {
         LoginRoot(
             onLogin = {
                 backStack.clear()
                 backStack.add(HomeRoute)
             },
             onSignup = {
-                backStack.add(Signup)
+                backStack.add(SignupRoute)
             }
         )
     }
-    entry<Signup> {
+    entry<SignupRoute> {
         SignupRoot(
             onSignIn = {
                 backStack.clear()

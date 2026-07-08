@@ -11,18 +11,18 @@ import androidx.compose.animation.togetherWith
 // Enter transition
 val enterTransitionSpec: () -> ContentTransform = {
     slideInHorizontally(
-        animationSpec = tween(300)
+        animationSpec = tween(500)
     ) + fadeIn() togetherWith slideOutHorizontally(
         targetOffsetX = { -it },
-        animationSpec = tween(300)
+        animationSpec = tween(500)
     ) + fadeOut()
 }
 
 // Exit transition
 val popTransitionSpec: () -> ContentTransform = {
     slideInHorizontally(
-        animationSpec = tween(300)
+        animationSpec = tween(500)
     ) + fadeIn() togetherWith slideOutHorizontally(
-        animationSpec = tween(300)
+        animationSpec = tween(500)
     ) + fadeOut()
 }

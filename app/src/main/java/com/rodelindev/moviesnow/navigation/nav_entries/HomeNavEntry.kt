@@ -7,7 +7,7 @@ import com.rodelindev.moviesnow.features.home.presentation.detail.MovieDetailScr
 import com.rodelindev.moviesnow.features.home.presentation.detail.MovieDetailViewModel
 import com.rodelindev.moviesnow.features.home.presentation.home.MovieListScreen
 import com.rodelindev.moviesnow.navigation.HomeRoute
-import com.rodelindev.moviesnow.navigation.Login
+import com.rodelindev.moviesnow.navigation.LoginRoute
 import com.rodelindev.moviesnow.navigation.MovieDetail
 import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.parameter.parametersOf
@@ -24,7 +24,7 @@ fun EntryProviderScope<NavKey>.homeNavEntry(
             onLogout = {
                 logout()
                 backStack.clear()
-                backStack.add(Login)
+                backStack.add(LoginRoute)
             }
         )
     }

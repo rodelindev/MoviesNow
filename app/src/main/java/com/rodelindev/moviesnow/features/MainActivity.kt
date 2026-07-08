@@ -5,7 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.rodelindev.moviesnow.navigation.HomeRoute
-import com.rodelindev.moviesnow.navigation.Login
+import com.rodelindev.moviesnow.navigation.LoginRoute
 import com.rodelindev.moviesnow.navigation.NavigationRoot
 import com.rodelindev.moviesnow.navigation.NavigationRoute
 import com.rodelindev.moviesnow.ui.theme.MoviesNowTheme
@@ -13,7 +13,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : ComponentActivity() {
 
-    private val viewModel: MainViewModel by viewModel()
+    private val viewModel by viewModel<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
     private fun getStartDestination(): NavigationRoute {
         return when {
             viewModel.isLoggedIn -> HomeRoute
-            else -> Login
+            else -> LoginRoute
         }
     }
 }

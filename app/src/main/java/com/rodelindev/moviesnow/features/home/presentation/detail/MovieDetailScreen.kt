@@ -78,7 +78,7 @@ fun MovieDetailScreen(
 }
 
 @Composable
-fun MovieDetailContent(
+private fun MovieDetailContent(
     modifier: Modifier = Modifier,
     movie: Movie?,
     onNavigateUp: () -> Unit,
@@ -152,7 +152,7 @@ fun MovieDetailContent(
 
 @Preview
 @Composable
-fun MovieDetailPreview() {
+private fun MovieDetailPreview() {
     MoviesNowTheme {
         MovieDetailContent(
             onNavigateUp = { },
