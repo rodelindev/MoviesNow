@@ -20,3 +20,6 @@ data object LoginRoute: NavigationRoute
 @Serializable
 data object SignupRoute: NavigationRoute
 
+// Profile Route
+@Serializable
+data object ProfileRoute: NavigationRoute

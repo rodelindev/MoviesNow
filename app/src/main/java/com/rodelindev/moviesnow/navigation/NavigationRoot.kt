@@ -10,6 +10,7 @@ import com.rodelindev.moviesnow.navigation.components.enterTransitionSpec
 import com.rodelindev.moviesnow.navigation.components.popTransitionSpec
 import com.rodelindev.moviesnow.navigation.nav_entries.authNavEntry
 import com.rodelindev.moviesnow.navigation.nav_entries.homeNavEntry
+import com.rodelindev.moviesnow.navigation.nav_entries.profileNavEntry
 
 @Composable
 fun NavigationRoot(
@@ -31,7 +32,9 @@ fun NavigationRoot(
             //Authentication Routes
             authNavEntry(backStack)
             //Home Routes
-            homeNavEntry(backStack, logout)
+            homeNavEntry(backStack)
+            //Profile Routes
+            profileNavEntry(backStack, logout)
         }
     )
 }

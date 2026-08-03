@@ -1,6 +1,8 @@
 package com.rodelindev.moviesnow.core.di
 
 import com.rodelindev.moviesnow.core.data.network.interceptor.ApiKeyInterceptor
+import com.rodelindev.moviesnow.core.di.Qualifier.ApiKey
+import com.rodelindev.moviesnow.core.di.Qualifier.BaseUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.qualifier.named
@@ -11,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 val networkModule = module {
     single<Retrofit> {
         Retrofit.Builder()
-            .baseUrl(get<String>(named(Qualifier.BaseUrl)))
+            .baseUrl(get<String>(named(BaseUrl)))
             .addConverterFactory(GsonConverterFactory.create())
             .client(get<OkHttpClient>())
             .build()
@@ -30,5 +32,5 @@ val networkModule = module {
         }
     }
 
-    factory { ApiKeyInterceptor(get<String>(named(Qualifier.ApiKey))) }
+    factory { ApiKeyInterceptor(get<String>(named(ApiKey))) }
 }

@@ -22,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.dropUnlessResumed
 import com.rodelindev.moviesnow.ui.theme.MoviesNowTheme
 import org.koin.androidx.compose.koinViewModel
 
@@ -87,7 +88,7 @@ fun LoginScreen(
             )
 
             Button(
-                onClick = { onLogin()  },
+                onClick = dropUnlessResumed { onLogin() },
                 shape = RoundedCornerShape(10.dp),
                 modifier = Modifier
                     .fillMaxWidth()

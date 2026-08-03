@@ -40,7 +40,6 @@ import org.koin.androidx.compose.koinViewModel
 fun MovieListScreen(
     viewModel: HomeViewModel = koinViewModel(),
     onMovieClick: (Int) -> Unit,
-    onLogout: () -> Unit,
 ) {
 
     val moviesState = viewModel.state.collectAsLazyPagingItems()

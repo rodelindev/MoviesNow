@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.rodelindev.moviesnow.R
+import com.rodelindev.moviesnow.ui.theme.MoviesNowTheme
 
 @Composable
 fun ErrorView(
@@ -62,9 +63,11 @@ fun ErrorView(
 @Preview(showBackground = true)
 @Composable
 fun ErrorViewPreview() {
-    ErrorView(
-        message = "Unknown error occurred",
-        onRetry = {},
-        modifier = Modifier.fillMaxSize()
-    )
+    MoviesNowTheme {
+        ErrorView(
+            message = "Unknown error occurred",
+            onRetry = {},
+            modifier = Modifier.fillMaxSize()
+        )
+    }
 }

@@ -3,12 +3,15 @@ package com.rodelindev.moviesnow.features.authentication.di
 import com.rodelindev.moviesnow.features.authentication.data.matcher.EmailMatcherImpl
 import com.rodelindev.moviesnow.features.authentication.data.network.IAuthApiService
 import com.rodelindev.moviesnow.features.authentication.data.repository.AuthenticationRepositoryImpl
+import com.rodelindev.moviesnow.features.authentication.domain.matcher.EmailMatcher
 import com.rodelindev.moviesnow.features.authentication.domain.repository.IAuthRepository
 import com.rodelindev.moviesnow.features.authentication.domain.usecase.GetUserIdUseCase
 import com.rodelindev.moviesnow.features.authentication.domain.usecase.IsUserLoggedInUseCase
-import com.rodelindev.moviesnow.features.authentication.domain.usecase.LoginUseCases
+import com.rodelindev.moviesnow.features.authentication.domain.usecase.LoginWithEmailUseCase
 import com.rodelindev.moviesnow.features.authentication.domain.usecase.LogoutUseCase
-import com.rodelindev.moviesnow.features.authentication.domain.usecase.SignupUseCases
+import com.rodelindev.moviesnow.features.authentication.domain.usecase.SignupWithEmailUseCase
+import com.rodelindev.moviesnow.features.authentication.domain.usecase.ValidateEmailUseCase
+import com.rodelindev.moviesnow.features.authentication.domain.usecase.ValidatePasswordUseCase
 import com.rodelindev.moviesnow.features.authentication.presentation.login.LoginViewModel
 import com.rodelindev.moviesnow.features.authentication.presentation.signup.SignupViewModel
 import org.koin.dsl.bind
@@ -24,11 +27,13 @@ val authenticationModule = module {
 
     // Repository implementation
     factory<AuthenticationRepositoryImpl>() bind(IAuthRepository::class)
-    factory<EmailMatcherImpl>() //bind(EmailMatcher::class)
+    factory<EmailMatcherImpl>() bind(EmailMatcher::class)
 
     // Use cases
-    factory<LoginUseCases>()
-    factory<SignupUseCases>()
+    factory<LoginWithEmailUseCase>()
+    factory<SignupWithEmailUseCase>()
+    factory<ValidateEmailUseCase>()
+    factory<ValidatePasswordUseCase>()
     factory<LogoutUseCase>()
     factory<GetUserIdUseCase>()
     factory<IsUserLoggedInUseCase>()

@@ -5,12 +5,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rodelindev.moviesnow.features.authentication.domain.usecase.SignupUseCases
+import com.rodelindev.moviesnow.features.authentication.domain.usecase.SignupWithEmailUseCase
+import com.rodelindev.moviesnow.features.authentication.domain.usecase.ValidateEmailUseCase
+import com.rodelindev.moviesnow.features.authentication.domain.usecase.ValidatePasswordUseCase
 import com.rodelindev.moviesnow.features.authentication.presentation.utils.PasswordErrorParser
 import kotlinx.coroutines.launch
 
 class SignupViewModel(
-    private val signupUseCases: SignupUseCases
+    private val signupWithEmailUseCase: SignupWithEmailUseCase,
+    private val validateEmailUseCase: ValidateEmailUseCase,
+    private val validatePasswordUseCase: ValidatePasswordUseCase
 ) : ViewModel() {
 
     var state by mutableStateOf(SignupState())
@@ -23,16 +27,19 @@ class SignupViewModel(
                     username = action.username
                 )
             }
+
             is SignupAction.PasswordChange -> {
                 state = state.copy(
                     password = action.password
                 )
             }
+
             SignupAction.LogIn -> {
-                state = state.copy(
+                /*state = state.copy(
                     logIn = true
-                )
+                )*/
             }
+
             SignupAction.SignUp -> {
                 signUp()
             }
@@ -44,12 +51,12 @@ class SignupViewModel(
             emailError = null,
             passwordError = null
         )
-        if (!signupUseCases.validateEmailUseCase(state.username)) {
+        if (!validateEmailUseCase(state.username)) {
             state = state.copy(
                 emailError = "El email no es valido"
             )
         }
-        val passwordResult = signupUseCases.validatePasswordUseCase(state.password)
+        val passwordResult = validatePasswordUseCase(state.password)
         state = state.copy(
             passwordError = PasswordErrorParser.parseError(passwordResult)
         )
@@ -59,7 +66,7 @@ class SignupViewModel(
                 isLoading = true
             )
             viewModelScope.launch {
-                signupUseCases.signupWithEmailUseCase(state.username, state.password).onSuccess {
+                signupWithEmailUseCase(state.username, state.password).onSuccess {
                     state = state.copy(
                         isSignedIn = true
                     )

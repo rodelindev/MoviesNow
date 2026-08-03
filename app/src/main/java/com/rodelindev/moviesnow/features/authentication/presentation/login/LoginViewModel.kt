@@ -5,13 +5,17 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rodelindev.moviesnow.features.authentication.domain.usecase.LoginUseCases
+import com.rodelindev.moviesnow.features.authentication.domain.usecase.LoginWithEmailUseCase
+import com.rodelindev.moviesnow.features.authentication.domain.usecase.ValidateEmailUseCase
+import com.rodelindev.moviesnow.features.authentication.domain.usecase.ValidatePasswordUseCase
 import com.rodelindev.moviesnow.features.authentication.presentation.utils.PasswordErrorParser
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class LoginViewModel(
-    private val loginUseCases: LoginUseCases,
+    private val loginWithEmailUseCase: LoginWithEmailUseCase,
+    private val validateEmailUseCase: ValidateEmailUseCase,
+    private val validatePasswordUseCase: ValidatePasswordUseCase
 ) : ViewModel() {
 
     var state by mutableStateOf(LoginState())
@@ -24,11 +28,13 @@ class LoginViewModel(
                     password = action.password
                 )
             }
+
             is LoginAction.UserNameChange -> {
                 state = state.copy(
                     username = action.username
                 )
             }
+
             LoginAction.Login -> {
                 login()
             }
@@ -41,13 +47,13 @@ class LoginViewModel(
             passwordError = null
         )
 
-        if (!loginUseCases.validateEmailUseCase(state.username)) {
+        if (!validateEmailUseCase(state.username)) {
             state = state.copy(
                 emailError = "El email no es valido"
             )
 
         }
-        val passwordResult = loginUseCases.validatePasswordUseCase(state.password)
+        val passwordResult = validatePasswordUseCase(state.password)
 
         state = state.copy(
             passwordError = PasswordErrorParser.parseError(passwordResult)
@@ -58,7 +64,7 @@ class LoginViewModel(
                 isLoading = true
             )
             viewModelScope.launch(Dispatchers.IO) {
-                loginUseCases.loginWithEmailUseCase(state.username, state.password).onSuccess {
+                loginWithEmailUseCase(state.username, state.password).onSuccess {
                     state = state.copy(
                         isLoggedIn = true
                     )

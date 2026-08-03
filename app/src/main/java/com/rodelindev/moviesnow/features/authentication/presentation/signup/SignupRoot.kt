@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.dropUnlessResumed
 import com.rodelindev.moviesnow.R
 import com.rodelindev.moviesnow.ui.theme.MoviesNowTheme
 import org.koin.androidx.compose.koinViewModel
@@ -30,7 +31,7 @@ import org.koin.androidx.compose.koinViewModel
 fun SignupRoot(
     viewModel: SignupViewModel = koinViewModel(),
     onSignIn: () -> Unit,
-    onLogin: () -> Unit,
+    onBack: () -> Unit,
 ) {
     val state = viewModel.state
 
@@ -40,15 +41,11 @@ fun SignupRoot(
         }
     }
 
-    LaunchedEffect(state.logIn) {
-        if (state.logIn) {
-            onLogin()
-        }
-    }
-
     SignupScreen(
         state = state,
-        onAction = viewModel::onAction
+        onAction = viewModel::onAction,
+        onSignIn = onSignIn,
+        onBack = onBack
     )
 }
 
@@ -57,6 +54,8 @@ fun SignupRoot(
 fun SignupScreen(
     state: SignupState,
     onAction: (SignupAction) -> Unit,
+    onSignIn: () -> Unit,
+    onBack: () -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -64,7 +63,7 @@ fun SignupScreen(
                 title = {},
                 navigationIcon = {
                     IconButton(
-                        onClick = { onAction(SignupAction.LogIn) }
+                        onClick = { onBack() }
                     ) {
                         Icon(
                             painter = painterResource(R.drawable.ic_arrow_back),
@@ -108,7 +107,7 @@ fun SignupScreen(
                 )
 
                 Button(
-                    onClick = {  },
+                    onClick = dropUnlessResumed { onSignIn() },
                     shape = RoundedCornerShape(10.dp),
                     modifier = Modifier
                         .fillMaxWidth()
@@ -128,6 +127,8 @@ private fun SignupPreview() {
         SignupScreen(
             state = SignupState(),
             onAction = {},
+            onSignIn = {},
+            onBack = {}
         )
     }
 }

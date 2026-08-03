@@ -3,6 +3,7 @@ package com.rodelindev.moviesnow.core.di
 import com.rodelindev.moviesnow.BuildConfig
 import com.rodelindev.moviesnow.features.authentication.di.authenticationModule
 import com.rodelindev.moviesnow.features.home.di.homeModule
+import com.rodelindev.moviesnow.features.profile.di.profileModule
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
@@ -12,7 +13,8 @@ val appModule = module {
             networkModule,
             preferencesModule,
             authenticationModule,
-            homeModule
+            homeModule,
+            profileModule
         )
     )
 
