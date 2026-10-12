@@ -1,8 +1,5 @@
-@file:OptIn(ExperimentalSharedTransitionApi::class)
-
 package com.rodelindev.moviesnow.features.home.presentation.home
 
-import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -48,7 +45,6 @@ fun MovieListScreen(
         modifier = Modifier
             .background(MaterialTheme.colorScheme.background)
     ) { paddingValues ->
-        
         when {
             moviesState.loadState.refresh is LoadState.Loading && moviesState.itemCount == 0 -> {
                 CustomProgressIndicator(
@@ -85,7 +81,7 @@ fun MovieListScreen(
 }
 
 @Composable
-fun MovieListContent(
+private fun MovieListContent(
     paddingValues: PaddingValues,
     movies: LazyPagingItems<Movie>,
     onMovieClick: (Int) -> Unit,
@@ -135,12 +131,12 @@ fun MovieListContent(
 
 @Preview(showBackground = true)
 @Composable
-fun HomeScreenPreview() {
+private fun HomeScreenPreview() {
     MoviesNowTheme {
 
-        val movieList = List(20) { index ->
+        val movieList = List(10) { index ->
             Movie(
-                id = index,
+                id = index + 1,
                 title = "Movie $index",
                 adult = false,
                 backdrop = "/hZkgoQYus5vegHoetLkCJzb17zJ.jpg",

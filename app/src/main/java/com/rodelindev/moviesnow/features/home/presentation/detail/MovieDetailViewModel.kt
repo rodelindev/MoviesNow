@@ -2,7 +2,7 @@ package com.rodelindev.moviesnow.features.home.presentation.detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.rodelindev.moviesnow.core.extensions.stateInWhileSubscribed
+import com.rodelindev.moviesnow.core.utils.stateInWhileSubscribed
 import com.rodelindev.moviesnow.features.home.domain.usecase.GetMovieByIdUseCase
 import com.rodelindev.moviesnow.navigation.MovieDetail
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -27,6 +27,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -47,7 +48,6 @@ fun MovieDetailScreen(
     viewModel: MovieDetailViewModel,
     onBack: () -> Unit,
 ) {
-
     val state by viewModel.state.collectAsStateWithLifecycle()
 
     when {
@@ -128,6 +128,7 @@ private fun MovieDetailContent(
                     .padding(horizontal = 16.dp)
                     .align(Alignment.CenterHorizontally)
                     .clip(RoundedCornerShape(20.dp))
+                    .background(Color.Gray)
             )
             Text(
                 text = movie?.title ?: "",

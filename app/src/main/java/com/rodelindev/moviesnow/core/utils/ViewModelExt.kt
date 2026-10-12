@@ -1,4 +1,4 @@
-package com.rodelindev.moviesnow.core.extensions
+package com.rodelindev.moviesnow.core.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

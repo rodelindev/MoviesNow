@@ -1,13 +1,13 @@
 [versions]
-agp = "9.3.1"
-kotlin = "2.4.10"
-coreKtx = "1.19.0"
+agp = "9.4.1"
+kotlin = "2.4.21"
+coreKtx = "1.19.1"
 junit = "4.13.2"
 junitVersion = "1.3.0"
 espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.11.0"
 activityCompose = "1.13.0"
-composeBom = "2026.06.01"
+composeBom = "2026.09.00"
 ## SDK Versions
 minSdk = "26"
 compileSdk = "37"
@@ -17,21 +17,21 @@ targetSdk = "37"
 ## KSP
 ksp = "2.3.9"
 ## Navigation 3
-nav3Core = "1.2.0-alpha07"
+nav3Core = "1.2.0"
 nav3Lifecycle = "2.11.0"
 ## Kotlinx Serialization
 kotlinSerialization = "1.11.0"
 ## Koin Compose
 koinVersion = "4.2.2"
-koinPlugin = "1.1.0"
+koinPlugin = "1.2.1"
 ## Paging Compose
-pagingCompose = "3.5.0"
+pagingCompose = "3.5.2"
 ## Retrofit and Interceptor
 retrofitVersion = "3.0.0"
-loggingInterceptor = "5.4.0"
+loggingInterceptor = "5.5.0"
 ## Coil
-coilCompose = "3.5.0"
-coilNetworkOkhttp = "3.5.0"
+coilCompose = "3.6.3"
+coilNetworkOkhttp = "3.6.3"
 ## Lifecycle ViewModel
 lifecycleViewModel = "2.11.0"
 datastorePreferencesCore = "1.2.1"

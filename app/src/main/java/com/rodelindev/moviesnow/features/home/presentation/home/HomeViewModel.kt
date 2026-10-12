@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.rodelindev.moviesnow.core.extensions.stateInWhileSubscribed
+import com.rodelindev.moviesnow.core.utils.stateInWhileSubscribed
 import com.rodelindev.moviesnow.features.home.domain.model.Movie
 import com.rodelindev.moviesnow.features.home.domain.usecase.GetMoviesUseCase
 import kotlinx.coroutines.flow.MutableStateFlow

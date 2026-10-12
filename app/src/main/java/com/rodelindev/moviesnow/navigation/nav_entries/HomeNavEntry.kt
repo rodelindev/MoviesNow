@@ -12,7 +12,7 @@ import org.koin.compose.viewmodel.koinViewModel
 import org.koin.core.parameter.parametersOf
 
 fun EntryProviderScope<NavKey>.homeNavEntry(
-    backStack: NavBackStack<NavKey>
+    backStack: NavBackStack<NavKey>,
 ) {
     entry<HomeRoute> {
         MovieListScreen(
